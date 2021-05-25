@@ -17,7 +17,9 @@ body{
     margin: auto;
     max-width: 1070px;
 }
-/* Header */
+/* ==========
+ Header
+==========*/
 
 header{
     display: flex;
@@ -43,18 +45,134 @@ header{
 .header_languages a:hover{
     border-bottom: 3px solid white;
 }
-/* Heading Title */
+
+/* ==========
+Heading Title 
+==========*/
+
 .heading_title{
     height: 600px;
-    background: url(background.png) no-repeat;
+    background: url(background.png) center no-repeat;
+    background-size: cover;
 }
 .heading_title h1{
     font-size: 140px;
     margin: auto;
     text-align: center;
-    text-shadow: 5px 5px 5px #000;
+    text-shadow: 10px 10px 10px #000;
 }
-/* Main Content */
+
+/* ========== 
+Main Content 
+==========*/
+
 .main_content{
-    background-color: #0075FF;
+    background: #D6E6FF;
+    background-blend-mode: soft-light;
+    color: black;
 }
+.filter{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    
+    padding: 110px 0 20px;
+    border-bottom: 3px solid black;
+
+    text-align: center;
+}
+.filter_{
+    display: flex;
+    justify-content: space-between;
+
+    margin: auto;
+
+    align-items: center;
+}
+.filter div input, .filter div select{
+    width: 200px;
+    height: 20px;
+
+    margin-left: 30px;
+
+    border: 3px solid black;
+    border-radius: 3px;
+}
+/* ========== 
+Crouise offer
+==========*/
+.crouise_offers{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    color: white;
+}
+.crouise_offer{
+    width: 300px;
+    height: 425px;
+
+    margin-top: 80px;
+    text-align: center;
+
+    background-color: #4E5CD9;
+    border: 5px solid #3844AF;
+}
+.crouise_offer img{
+    width: 220px;
+    height: 240px;
+
+    margin-top: 25px;
+
+    background-color: white;
+}
+.btn_details{
+    width: 220px;
+
+    margin: 50px auto;
+
+    background-color: black;
+
+    border-radius: 3px;
+    cursor: pointer;
+
+    transition: 0.2s linear;
+}
+.btn_details:hover{
+    background-color: white;
+    color: black;
+}
+.pages{
+    display: flex;
+    justify-content: center;
+
+    padding: 10px 0;
+}
+.pages h3{
+    display: inline-block;
+    margin-left: 5px;
+    cursor: pointer;
+}
+/* ========== 
+Footer
+==========*/
+footer{
+    height: 300px;
+
+    background-color: black;
+}
+footer .content{
+    display: flex;
+    justify-content: space-between;
+
+    padding: 40px;
+}
+.footer_info ul li {
+    margin-top: 20px;
+}
+.footer_info ul li a{
+    color: white;
+}
+/* ========== 
+
+==========*/
