@@ -222,9 +222,21 @@ Popup
     width: 35%;
 }
 .popup__info--content{
-    max-height: 150px;
+    display: flex;
+    justify-content: space-between;
+    align-content: stretch;
+    width: 100%;
     text-align: left;
 }
 .popup__info--content h4{
     margin-top: 30px;
+}
+.popup__info--data{
+    text-align: center;
+}
+.popup__btns{
+
+}
+.popup__btns h2{
+    border: solid 2px black;
 }
