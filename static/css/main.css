@@ -24,6 +24,7 @@ body{
 header{
     display: flex;
 
+    width: 100%;
     min-height: 180px;
     background-color: black;
     color: white;
@@ -183,5 +184,47 @@ footer .content{
     color: white;
 }
 /* ========== 
-
+Popup
 ==========*/
+.popup{
+    display: flex;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+
+    background-color: rgba(0, 0, 0, 0.7);
+    top: 0;
+    left: 0;
+}
+.popup__window{
+    width: 1000px;
+    height: 770px;
+
+    margin: auto;
+    text-align: center;
+    align-content: center;
+
+    background-color: white;
+    color: black;
+}
+.popup__content{
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+
+    padding-top: 40px;
+}
+.popup__content img{
+    width: 500px;
+    height: 500px;
+}
+.popup__info{
+    width: 35%;
+}
+.popup__info--content{
+    max-height: 150px;
+    text-align: left;
+}
+.popup__info--content h4{
+    margin-top: 30px;
+}

@@ -71,7 +71,7 @@ header div h5{
 
     margin: 50px auto;
 
-    transition: 0.2s linear
+    transition: all 0.2s ease;   
 }
 .btn_edit:hover{
     background-color: white;
