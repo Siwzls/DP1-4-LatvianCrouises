@@ -1,0 +1,79 @@
+/* Header (admin) */
+header div{
+    text-align: center;
+}
+header div h5{
+    position: relative;
+    bottom: 10px;
+
+    text-transform: lowercase;
+}
+/* TypeOfInfo */
+.typeOfInfo{
+    display: flex;
+    justify-content: space-between;
+
+    color:black;
+
+    margin: 75px auto;
+}
+.typeOfInfo h2{
+    font-weight: bold;
+
+    border: #FF8A00 solid 2px;
+    border-radius: 3px;
+
+    padding: 2px;
+
+    cursor: pointer;
+
+    transition: linear 0.2s;
+}
+.typeOfInfo h2:last-child{
+    border: #00C508 solid 2px;
+}
+.typeOfInfo h2:hover{
+    background-color: #FF8A00;
+    color: white;
+}
+.typeOfInfo h2:last-child:hover{
+    background-color: #00C508;
+    color: white;
+}
+/* Search */
+.search{
+    max-width: 87%;
+    color: black;
+    text-align: center;
+
+    border-bottom: 3px solid black;
+
+    margin: 50px auto;
+}
+.search input{
+    width: 880px;
+    height: 50px;
+    font-size: 300%;
+
+    border: 3px solid black;
+    border-radius: 3px;
+
+    margin: 50px 0;
+}
+/* InfoBlocks */
+.btn_edit{
+    width: 220px;
+
+    background-color: #D27E00;
+
+    border-radius: 3px;
+    cursor: pointer;
+
+    margin: 50px auto;
+
+    transition: 0.2s linear
+}
+.btn_edit:hover{
+    background-color: white;
+    color: #D27E00;
+}

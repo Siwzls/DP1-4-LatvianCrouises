@@ -52,7 +52,7 @@ Heading Title
 
 .heading_title{
     height: 600px;
-    background: url(background.png) center no-repeat;
+    background: url(../images/background.png) center no-repeat;
     background-size: cover;
 }
 .heading_title h1{
@@ -145,12 +145,21 @@ Crouise offer
 .pages{
     display: flex;
     justify-content: center;
+    align-items: center;
+    color: black;
 
     padding: 10px 0;
 }
 .pages h3{
+    position: relative;
     display: inline-block;
-    margin-left: 5px;
+    margin: 0 5px;
+    cursor: pointer;
+}
+.pages img{
+    width: 20px;
+    height: 20px;
+
     cursor: pointer;
 }
 /* ========== 
