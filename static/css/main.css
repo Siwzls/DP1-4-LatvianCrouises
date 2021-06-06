@@ -207,10 +207,25 @@ Popup
     background-color: white;
     color: black;
 }
+/* Close button */
+#btn_popupClose{
+    width: 50px;
+    
+    border: solid black 2px;
+    border-radius: 2px;
+
+    cursor: pointer;
+
+    margin: 5px 5px 0 auto;
+    padding: 5px 15px;
+}
+#btn_popupClose:hover{
+    background-color: black;
+    color: white;
+}
+/* Close button END*/
 .popup__content{
     position: relative;
-    display: flex;
-    justify-content: space-around;
 
     padding-top: 40px;
 }
@@ -219,24 +234,50 @@ Popup
     height: 500px;
 }
 .popup__info{
-    width: 35%;
+    display: flex;
+    width: 95%;
+    margin: auto;
 }
 .popup__info--content{
-    display: flex;
-    justify-content: space-between;
-    align-content: stretch;
     width: 100%;
+}
+.popup_info--content--inner{
+    display: flex;
+    justify-content: space-around;
+
+    margin: auto;
+}
+.popup__info--parameters{
     text-align: left;
 }
-.popup__info--content h4{
+.popup__info--parameters h4{
     margin-top: 30px;
 }
 .popup__info--data{
     text-align: center;
 }
-.popup__btns{
-
+.popup__info--data h4{
+    margin-top: 30px;
 }
-.popup__btns h2{
+.popup_btns{
+    display: flex;
+    justify-content: space-around;
+
+    align-self: flex-end;
+
+    margin-top: 100px;
+}
+.popup_btns h2{
+    width: 250px;
     border: solid 2px black;
+    
+    cursor: pointer;
+
+    padding: 20px 3px;
+
+    transition: background-color linear 0.2s;
+}
+.popup_btns h2:hover{
+    background-color: black;
+    color: white;
 }
