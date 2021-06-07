@@ -7,14 +7,16 @@
         href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap" 
         rel="stylesheet">
         <link rel="stylesheet" href="../static/css/main.css">
+        <link rel="stylesheet" href="../static/css/popup_styles.css">
+        <title>LatvianCrouises</title>
     </head>
     <body>
         <!-- 
         Header
          -->
         <header>
-            <h1 class="header_title header_inner content">Latvian<span>Crouises</span></h1>
-            <h5 class="header_inner content">Login as admin</h5>
+            <h1 class="header__title header_inner content">Latvian<span>Crouises</span></h1>
+            <h5 id="login" class="header_inner content">Login as admin</h5>
             <div class="header_languages">
                 <a href="#">EN</a>
                 <a href="#">LV</a>
@@ -33,31 +35,33 @@
                 Filter
                  -->
                 <div class="filter">
-                    <div id="filter_from" class="filter_">
+                    <div id="filter_from" class="filter__inner">
                         <h2>From</h2>
                         <select name="" id="">
                             <option value="Riga">Riga</option>
                             <option value="Stockholm">Stockholm</option>
                         </select>
                     </div>
-                    <div id="filter_to" class="filter_">
+                    <div id="filter_to" class="filter__inner">
                         <h2>To</h2>
                         <select name="" id="">
                             <option value="Riga">Riga</option>
                             <option value="Stockholm">Stockholm</option>
                         </select>
                     </div>
-                    <div id="filter_date" class="filter_">
+                    <div id="filter_date" class="filter__inner">
                         <h2>Department date</h2>
                         <input type="text" placeholder="DD.MM.YYYY">
                     </div>
-                    <div id="filter_checkbox" class="filter_">
-                        <h6>Show only booked cruises</h6>
-                        <input type="checkbox">
-                    </div>
-                    <div id="filter_search" class="filter_">
-                        <h2>Search</h2>
-                        <input type="text">
+                    <div class="filter__inner--bottom">
+                        <div id="filter_checkbox" class="filter__inner">
+                            <h6>Show only booked cruises</h6>
+                            <input type="checkbox">
+                        </div>
+                        <div id="filter_search" class="filter__inner">
+                            <h2>Search</h2>
+                            <input type="text">
+                        </div>
                     </div>
                 </div>
                  <!-- 
@@ -104,10 +108,11 @@
                 </div>
             </div>
         </div>
-        <!-- Popup -->
-        <div class="popup">
+        <!-- Popups -->
+        <!-- Details-->
+        <div id="popup_details" class="popup">
             <div class="popup__window">
-                <h4 id="btn_popupClose">Close</h4>
+                <h4 class="btn_popupClose">Close</h4>
                 <div class="popup__content">
                     <div class="popup__info">
                         <img src="" alt="">
@@ -134,7 +139,26 @@
                 </div>
             </div>
         </div>
-        <!-- Popup end -->
+        <!-- Details END-->
+        <!-- Login -->
+        <div id="popup_login" class="popup">
+            <div class="popup__window">
+                <h4 class="btn_popupClose">Close</h4>
+                <div class="popup__content--login">
+                    <h1>Loging in</h1>
+                    <div>
+                        <form>
+                            <input type="text" placeholder="Username">
+                            <input type="text" placeholder="Password">
+                            <!-- <input type="submit" value="Log in"> -->
+                            <a href="admin_panel.html">Log in</a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Login END -->
+        <!-- Popups end -->
         <footer>
             <div class="content">
                 <div class="contacts">
@@ -150,5 +174,6 @@
                 </div>
             </div>
         </footer>
+        <script src="../static/js/app.js"></script>
     </body>
 </html>
