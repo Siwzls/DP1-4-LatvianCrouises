@@ -129,7 +129,7 @@ General parameters END
 
     margin-top: 50px;
 }
-/* .popup__content--login input:last-of-type{
+.popup__content--login input:last-of-type{
     width: 300px;
 
     background-color: white;
@@ -143,19 +143,21 @@ General parameters END
 .popup__content--login input:last-of-type:hover{
     background-color: black;
     color: white;
-} */
+}
 .popup__content--login a{
+    position: absolute;
     width: 300px;
 
-    font-size: 48px;
+    font-size: 18px;
 
     background-color: white;
 
-    border: solid 2px black;
-
     cursor: pointer;
 
-    margin-top: 20px;
+    margin-top: 30px;
+
+    bottom: 0;
+    right: 0px;
 
     transition: 0.2s linear;
 }

@@ -162,7 +162,8 @@ Crouise offer
     width: 220px;
     height: 240px;
 
-    background-color: white;
+    background: url(../images/noImageAvailable.png) no-repeat;
+    background-size: cover;
 
     margin-top: 25px;
 }
@@ -191,6 +192,7 @@ Crouise offer
     align-items: center;
     color: black;
 
+    margin-top: 20px;
     padding: 10px 0;
 }
 .pages h3{
