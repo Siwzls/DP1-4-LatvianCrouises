@@ -7,6 +7,7 @@
         href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap" 
         rel="stylesheet">
         <link rel="stylesheet" href="../static/css/main.css">
+        <link rel="stylesheet" href="../static/css/popup_styles.css">
         <title>LatvianCrouises</title>
     </head>
     <body>
@@ -14,7 +15,7 @@
         Header
          -->
         <header>
-            <h1 class="header_title header_inner content">Latvian<span>Crouises</span></h1>
+            <h1 class="header__title header_inner content">Latvian<span>Crouises</span></h1>
             <h5 id="login" class="header_inner content">Login as admin</h5>
             <div class="header_languages">
                 <a href="#">EN</a>
@@ -108,7 +109,7 @@
             </div>
         </div>
         <!-- Popups -->
-        <!-- Details -->
+        <!-- Details-->
         <div id="popup_details" class="popup">
             <div class="popup__window">
                 <h4 class="btn_popupClose">Close</h4>
@@ -138,6 +139,8 @@
                 </div>
             </div>
         </div>
+        <!-- Details END-->
+        <!-- Login -->
         <div id="popup_login" class="popup">
             <div class="popup__window">
                 <h4 class="btn_popupClose">Close</h4>
@@ -147,13 +150,14 @@
                         <form>
                             <input type="text" placeholder="Username">
                             <input type="text" placeholder="Password">
-                            <input type="submit" value="Log in">
+                            <!-- <input type="submit" value="Log in"> -->
+                            <a href="admin_panel.html">Log in</a>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Details -->
+        <!-- Login END -->
         <!-- Popups end -->
         <footer>
             <div class="content">

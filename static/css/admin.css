@@ -8,6 +8,16 @@ header div h5{
 
     text-transform: lowercase;
 }
+header a{
+    color: white;
+
+    font-weight: bold;
+}
+header a:hover{
+    border-bottom: 2px solid white;
+
+    transition: linear .1s;
+}
 /* TypeOfInfo */
 .typeOfInfo{
     display: flex;
@@ -18,6 +28,9 @@ header div h5{
     margin: 75px auto;
 }
 .typeOfInfo h2{
+    width: 130px;
+
+    text-align: center;
     font-weight: bold;
 
     border: #FF8A00 solid 2px;
@@ -26,8 +39,6 @@ header div h5{
     padding: 2px;
 
     cursor: pointer;
-
-    transition: linear 0.2s;
 }
 .typeOfInfo h2:last-child{
     border: #00C508 solid 2px;
@@ -35,6 +46,8 @@ header div h5{
 .typeOfInfo h2:hover{
     background-color: #FF8A00;
     color: white;
+
+    transition: ease 0.2s;  
 }
 .typeOfInfo h2:last-child:hover{
     background-color: #00C508;
@@ -76,4 +89,6 @@ header div h5{
 .btn_edit:hover{
     background-color: white;
     color: #D27E00;
+
+    text-shadow: none;
 }

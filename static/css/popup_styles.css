@@ -1,0 +1,202 @@
+/* ========== 
+Popup
+-----
+General parameters
+==========*/
+#popup_details{
+    display: none;
+}
+.popup{
+    position: fixed;
+    display: flex;
+
+    width: 100%;
+    height: 100%;
+
+    background-color: rgba(0, 0, 0, 0.7);
+    top: 0;
+    left: 0;
+}
+.popup__window{
+    width: 1000px;
+    height: 770px;
+
+    text-align: center;
+    align-content: center;
+
+    background-color: white;
+    color: black;
+
+    border: 5px solid black;
+
+    margin: auto;
+}
+.btn_popupClose{
+    width: 50px;
+    
+    border: solid black 2px;
+    border-radius: 2px;
+
+    cursor: pointer;
+
+    margin: 5px 5px 0 auto;
+    padding: 5px 15px;
+}
+.btn_popupClose:hover{
+    background-color: black;
+    color: white;
+
+    transition: 0.2s ease-in;
+}
+.popup__content{
+    position: relative;
+
+    padding-top: 40px;
+}
+/*
+----- 
+General parameters END
+*/
+/* Details popup */
+.popup__content img{
+    width: 500px;
+    height: 500px;
+}
+.popup__info{
+    display: flex;
+
+    width: 95%;
+
+    margin: auto;
+}
+.popup__info--content{
+    width: 100%;
+}
+.popup_info--content--inner{
+    display: flex;
+    justify-content: space-around;
+
+    margin: auto;
+}
+.popup__info--parameters{
+    text-align: left;
+}
+.popup__info--parameters h4{
+    margin-top: 30px;
+}
+.popup__info--data{
+    text-align: center;
+}
+.popup__info--data h4{
+    margin-top: 30px;
+}
+.popup_btns{
+    display: flex;
+    justify-content: space-around;
+
+    margin-top: 60px;
+}
+.popup_btns h2{
+    width: 250px;
+    border: solid 2px black;
+    
+    cursor: pointer;
+
+    padding: 20px 3px;
+
+    transition: background-color linear 0.2s;
+}
+.popup_btns h2:hover{
+    background-color: black;
+    color: white;
+}
+/* Login popup */
+#popup_login{
+    display: none;
+}
+.popup__content--login h1{
+    font-size: 56px;
+}
+.popup__content--login form{
+    width: 600px;
+    margin: 100px auto 0;
+}
+.popup__content--login input{
+    width: 100%;
+    height: 60px;
+
+    font-size: 200%;
+
+    margin-top: 50px;
+}
+/* .popup__content--login input:last-of-type{
+    width: 300px;
+
+    background-color: white;
+
+    border: solid 2px black;
+
+    cursor: pointer;
+
+    transition: 0.2s linear;
+}
+.popup__content--login input:last-of-type:hover{
+    background-color: black;
+    color: white;
+} */
+.popup__content--login a{
+    width: 300px;
+
+    font-size: 48px;
+
+    background-color: white;
+
+    border: solid 2px black;
+
+    cursor: pointer;
+
+    margin-top: 20px;
+
+    transition: 0.2s linear;
+}
+/* Edit */
+#popup_edit{
+    display: none;
+}
+.popup__info--btn_edit{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+
+    width: 32px;
+}
+.popup__info--btn_edit img{
+    width: 32px;
+    height: 32px;
+
+    cursor: pointer;
+
+    margin-top: 21px;
+}
+#btn_save{
+    background-color: white;
+    color: #30B700;
+
+    border-color: #30B700;
+}
+#btn_save:hover{
+    background-color: #30B700;
+    color:white;
+
+    transition: ease 0.2s;
+}
+#btn_delete{
+    background-color: white;
+    color: #E80101;
+
+    border-color: #E80101;
+}
+#btn_delete:hover{
+    background-color: #E80101;
+    color:white;
+}
