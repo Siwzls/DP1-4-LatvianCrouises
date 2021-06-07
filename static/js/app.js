@@ -10,5 +10,12 @@ for(i = 0; i < btnMoreDetails.length; i++)
 }
 
 btnPopupClose.addEventListener('click', (e) =>{
-    popupDetails.style.display = "none";
+    switchPopup(popupDetails);
 })
+
+function switchPopup(popupToClose){
+    if(popupToClose.style.display = "flex")
+        popupToClose.style.display = "none";
+    else if(popupToClose.style.display = "none")
+        popupToClose.style.display = "flex"
+}

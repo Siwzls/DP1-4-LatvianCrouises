@@ -82,15 +82,30 @@ Main Content
 
     text-align: center;
 }
-.filter_{
+.filter__inner{
     display: flex;
     justify-content: space-between;
+    align-items: center;
 
     margin: auto;
-
-    align-items: center;
 }
-.filter div input, .filter div select{
+.filter__inner select, .filter__inner input{
+    width: 200px;
+    height: 30px;
+
+    font-size: 100%;
+
+    border: 2px solid black;
+    border-radius: 3px;
+
+    margin-left: 30px;
+}
+.filter__inner input:last-child{
+    width: 330px;
+
+    margin-top: 15px;
+}
+/* .filter div input, .filter div select{
     width: 200px;
     height: 20px;
 
@@ -98,7 +113,7 @@ Main Content
 
     border: 3px solid black;
     border-radius: 3px;
-}
+} */
 /* ========== 
 Crouise offer
 ==========*/
