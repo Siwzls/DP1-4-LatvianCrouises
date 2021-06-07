@@ -202,3 +202,7 @@ General parameters END
     background-color: #E80101;
     color:white;
 }
+/* Create */
+#popup_create{
+    display: none;
+}

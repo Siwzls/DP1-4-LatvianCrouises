@@ -32,7 +32,7 @@
             <h2 id="crouises">Crouises</h2>
             <h2 id="addNew">Add new</h2>
         </div>
-        <div class="search">
+        <div class="search content">
             <h1>Search</h1>
             <form>
                 <input type="text" name="" id="">
@@ -95,6 +95,8 @@
         <h3>3</h3>
         <img src="../static/images/arrow-r.png" alt="">
     </div>
+    <!-- Popups -->
+    <!-- Edit -->
     <div id="popup_edit" class="popup">
         <div class="popup__window">
             <h4 class="btn_popupClose">Close</h4>
@@ -125,11 +127,51 @@
                 <div class="popup_btns">
                     <h2 id="btn_save">Save</h2>
                     <h2 id="btn_delete">Delete</h2>
-                    <h2 id="btn_cancel">Cancel</h2>
                 </div> 
             </div>
         </div>
     </div>
+    <!-- Edit END -->
+    <!-- Create -->
+    <div id="popup_create" class="popup">
+        <div class="popup__window">
+            <h4 class="btn_popupClose">Close</h4>
+            <div class="popup__content">
+                <div class="popup__info">
+                    <img src="" alt="">
+                    <div class="popup__info--content">
+                        <h4>Info:</h4>
+                        <div class="popup_info--content--inner">
+                            <div class="popup__info--parameters">
+                                <h4>Department date:</h4>
+                                <h4>Ship:</h4>
+                                <h4>Price:</h4>
+                            </div>
+                            <div class="popup__info--data">
+                                <form>
+                                    <input type="text">
+                                    <input type="text">
+                                    <input type="text">
+                                    <input type="submit">
+                                </form>
+                            </div>
+                            <div class="popup__info--btn_edit">
+                                <img src="../static/images/editIcon.png" alt="">
+                                <img src="../static/images/editIcon.png" alt="">
+                                <img src="../static/images/editIcon.png" alt="">
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+                <div class="popup_btns">
+                    <h2 id="btn_save">Save</h2>
+                    <h2 id="btn_delete">Cancel</h2>
+                </div> 
+            </div>
+        </div>
+    </div>
+    <!-- Create END -->
+    <!-- Popups END -->
     <footer>
     </footer>
     <script src="../static/js/app.js"></script>
