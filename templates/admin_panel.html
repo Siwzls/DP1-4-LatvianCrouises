@@ -27,10 +27,10 @@
         Header end 
         -->
         <div class="typeOfInfo content">
-            <h2 id="ports">Ports</h2>
-            <h2 id="ships">Ships</h2>
-            <h2 id="crouises">Crouises</h2>
-            <h2 id="addNew">Add new</h2>
+            <h2 id="btn_ports">Ports</h2>
+            <h2 id="btn_ships">Ships</h2>
+            <h2 id="btn_crouises">Crouises</h2>
+            <h2 id="btn_addNew">Add new</h2>
         </div>
         <div class="search content">
             <h1>Search</h1>
@@ -143,29 +143,30 @@
                         <h4>Info:</h4>
                         <div class="popup_info--content--inner">
                             <div class="popup__info--parameters">
+                                <h4>Type:</h4>
                                 <h4>Department date:</h4>
                                 <h4>Ship:</h4>
                                 <h4>Price:</h4>
                             </div>
                             <div class="popup__info--data">
                                 <form>
+                                    <select name="" id="">
+                                        <option value="Port">Port</option>
+                                        <option value="Ship">Ship</option>
+                                        <option value="Crouise">Crouise</option>
+                                    </select>
                                     <input type="text">
                                     <input type="text">
                                     <input type="text">
-                                    <input type="submit">
+                                    <input type="submit" value="Save">
                                 </form>
-                            </div>
-                            <div class="popup__info--btn_edit">
-                                <img src="../static/images/editIcon.png" alt="">
-                                <img src="../static/images/editIcon.png" alt="">
-                                <img src="../static/images/editIcon.png" alt="">
                             </div>
                         </div>
                     </div> 
                 </div>
                 <div class="popup_btns">
                     <h2 id="btn_save">Save</h2>
-                    <h2 id="btn_delete">Cancel</h2>
+                    <h2 id="btn_delete" class="">Cancel</h2>
                 </div> 
             </div>
         </div>
