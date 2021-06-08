@@ -68,7 +68,7 @@ Heading Title
 ==========*/
 
 .heading_title{
-    height: 600px;
+    min-height: 600px;
     background: url(../images/background.png) center no-repeat;
     background-size: cover;
 }
@@ -209,7 +209,7 @@ Crouise offer
 
     cursor: pointer;
 }
-/* ========== 
+/*==========
 Footer
 ==========*/
 footer{

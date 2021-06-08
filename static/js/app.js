@@ -3,37 +3,33 @@ const btnMoreDetails = document.querySelectorAll('.btn_details');
 const btnEdit = document.querySelectorAll('.btn_edit');
 const btnLogin = document.querySelector('#login');
 const btnPopupClose = document.querySelectorAll('.btn_popupClose');
+const btnAddNew = document.querySelector('#btn_addNew');
 
 //Popups
 const popupDetails = document.querySelector('#popup_details');
 const popupLogin = document.querySelector('#popup_login');
 const popupEdit = document.querySelector('#popup_edit');
+const popupCreate = document.querySelector('#popup_create');
 
-// Shows details popup
-if(btnMoreDetails != null)
-{
-    for(i = 0; i < btnMoreDetails.length; i++){
-        btnMoreDetails[i].addEventListener('click', (e) =>{
-            popupDetails.style.display = "flex";
-        });
+document.addEventListener('click', (e) =>{
+    for(i = 0; i < btnMoreDetails.length + btnEdit.length; i++)
+    {
+        switch(e.target){
+            case btnMoreDetails[i]:
+                switchPopup(popupDetails);
+                break;
+            case btnLogin:
+                switchPopup(popupLogin);
+                break;
+            case btnEdit[i]:
+                switchPopup(popupEdit);
+                break;
+            case btnAddNew:
+                switchPopup(popupCreate);
+                break;
+        }
     }
-}
-// Shows login popup
-if(btnLogin != null)
-{
-    btnLogin.addEventListener('click', (e) =>{
-        popupLogin.style.display = "flex";
-    });
-}
-//Shows edit popup
-if(btnEdit != null)
-{
-    for(i = 0; i < btnEdit.length; i++){
-        btnEdit[i].addEventListener('click', (e) =>{
-            popupEdit.style.display = "flex";
-        });
-    }
-}
+})
 // Hide popup
 for(i = 0; i < btnPopupClose.length; i++){
 btnPopupClose[i].addEventListener('click', (e) =>{
@@ -41,9 +37,37 @@ btnPopupClose[i].addEventListener('click', (e) =>{
     switchPopup(popupId);
 });
 }
+document.addEventListener('click', (e) =>{
+    switch(e.target.id){
+        case 'btn_ports':
+            e.target.style.backgroundColor = "#FF8A00";
+            e.target.style.color = "#fff";
+            document.querySelector('#btn_ships').style.backgroundColor = "#fff";
+            document.querySelector('#btn_ships').style.color = "#000000";
+            document.querySelector('#btn_crouises').style.backgroundColor = "#fff";
+            document.querySelector('#btn_crouises').style.color = "#000000";
+            break;
+        case 'btn_ships':
+            e.target.style.backgroundColor = "#FF8A00";
+            e.target.style.color = "#fff";
+            document.querySelector('#btn_ports').style.backgroundColor = "#fff";
+            document.querySelector('#btn_ports').style.color = "#000000";
+            document.querySelector('#btn_crouises').style.backgroundColor = "#fff";
+            document.querySelector('#btn_crouises').style.color = "#000000";
+            break;
+        case 'btn_crouises':
+            e.target.style.backgroundColor = "#FF8A00";
+            e.target.style.color = "#fff";
+            document.querySelector('#btn_ports').style.backgroundColor = "#fff";
+            document.querySelector('#btn_ports').style.color = "#000000";
+            document.querySelector('#btn_ships').style.backgroundColor = "#fff";
+            document.querySelector('#btn_ships').style.color = "#000000";
+            break;
+    }
+})
 function switchPopup(popupToClose){
-    if(popupToClose.style.display = "flex")
+    if(popupToClose.style.display == "flex")
         popupToClose.style.display = "none";
-    else if(popupToClose.style.display = "none")
+    else
         popupToClose.style.display = "flex";
 }
