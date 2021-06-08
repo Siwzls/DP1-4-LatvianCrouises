@@ -218,7 +218,7 @@ General parameters END
 #popup_create .popup__info--data input{
     margin-top: 30px;
 }
-#popup_create .popup__info--data input:last-child{
+.popup__info--form--buttons input{
     width: 250px;
 
     font-size: 24px;
@@ -231,9 +231,19 @@ General parameters END
 
     cursor: pointer;
 }
-#popup_create .popup__info--data input:last-child:hover{
+.popup__info--form--buttons input:hover{
     background-color: #30B700;
     color: white;
 
     transition: ease 0.2s;
+}
+.popup__info--form--buttons h2{
+    width: 250px;
+    border: solid 2px black;
+    
+    cursor: pointer;
+
+    padding: 20px 3px;
+
+    transition: background-color linear 0.2s;
 }
