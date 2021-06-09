@@ -4,6 +4,7 @@ const btnEdit = document.querySelectorAll('.btn_edit');
 const btnLogin = document.querySelector('#login');
 const btnPopupClose = document.querySelectorAll('.btn_popupClose');
 const btnAddNew = document.querySelector('#btn_addNew');
+const btnDelete = document.querySelectorAll('.btn_popupDelete');
 
 //Popups
 const popupDetails = document.querySelector('#popup_details');
@@ -33,7 +34,14 @@ document.addEventListener('click', (e) =>{
 // Hide popup
 for(i = 0; i < btnPopupClose.length; i++){
 btnPopupClose[i].addEventListener('click', (e) =>{
-    var popupId = e.target.parentNode.parentNode;
+    var popupId = e.target.closest('div[id]');
+    switchPopup(popupId);
+});
+}
+// Delete popup
+for(i = 0; i < btnDelete.length; i++){
+btnDelete[i].addEventListener('click', (e) =>{
+    var popupId = e.target.closest('div[id]');
     switchPopup(popupId);
 });
 }
