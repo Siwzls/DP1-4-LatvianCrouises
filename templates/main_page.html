@@ -33,7 +33,7 @@
             <div class="content">
                 <!-- 
                 Filter
-                 -->
+                 -->                
                 <div class="filter">
                     <div id="filter_from" class="filter__inner">
                         <h2>From</h2>
@@ -66,61 +66,22 @@
                 </div>
                  <!-- 
                 Filter end
-                 -->        
+                 -->       
                 <div class="crouise_offers">
+                    {% for offer in offers %}
                     <div class="crouise_offer">
                         <h1 class="crouise_title">TestName#N</h1>
                         <img src="" alt="">
                         <h2 class="btn_details">More Details</h2>
                     </div>
-                    <div class="crouise_offer">
-                        <h1 class="crouise_title">TestName#N</h1>
-                        <img src="" alt="">
-                        <h2 class="btn_details">More Details</h2>
-                    </div>
-                    <div class="crouise_offer">
-                        <h1 class="crouise_title">TestName#N</h1>
-                        <img src="" alt="">
-                        <h2 class="btn_details">More Details</h2>
-                    </div>
-                    <div class="crouise_offer">
-                        <h1 class="crouise_title">TestName#N</h1>
-                        <img src="" alt="">
-                        <h2 class="btn_details">More Details</h2>
-                    </div>
-                    <div class="crouise_offer">
-                        <h1 class="crouise_title">TestName#N</h1>
-                        <img src="" alt="">
-                        <h2 class="btn_details">More Details</h2>
-                    </div>
-                    <div class="crouise_offer">
-                        <h1 class="crouise_title">TestName#N</h1>
-                        <img src="" alt="">
-                        <h2 class="btn_details">More Details</h2>
-                    </div>
-                    <div class="crouise_offer">
-                        <h1 class="crouise_title">TestName#N</h1>
-                        <img src="" alt="">
-                        <h2 class="btn_details">More Details</h2>
-                    </div>
-                    <div class="crouise_offer">
-                        <h1 class="crouise_title">TestName#N</h1>
-                        <img src="" alt="">
-                        <h2 class="btn_details">More Details</h2>
-                    </div>
-                    <div class="crouise_offer">
-                        <h1 class="crouise_title">TestName#N</h1>
-                        <img src="" alt="">
-                        <h2 class="btn_details">More Details</h2>
-                    </div>
-                </div>
-                <div class="pages">
+                    {% endfor %}
+                <!-- <div class="pages">
                     <img src="../static/images/arrow-l.png" alt="">
                     <h3>1</h3>
                     <h3>2</h3>
                     <h3>3</h3>
                     <img src="../static/images/arrow-r.png" alt="">
-                </div>
+                </div> -->
             </div>
         </div>
         <!-- Popups -->
@@ -140,9 +101,11 @@
                                     <h4>Price:</h4>
                                 </div>
                                 <div class="popup__info--data">
-                                    <h4>12.02.2004</h4>
-                                    <h4>Tallink</h4>
-                                    <h4>5€</h4>
+                                    {% for offer in offers %}
+                                    <h4>{{ offer.departDate }}</h4>
+                                    <h4>{{ offer.ship }}</h4>
+                                    <h4>{{ offer.price }}€</h4>
+                                    {% endfor %}
                                 </div>
                             </div>
                         </div> 

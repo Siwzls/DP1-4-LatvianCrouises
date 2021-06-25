@@ -1,15 +1,18 @@
-from flask import Flask, render_template
+from enum import unique
+from flask import Flask, render_template, request, redirect
+from flask.sessions import NullSession
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///main.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
-
-@app.route('/')
-def mainPage():
-    return render_template('main_page.html')
+class Offers(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    departDate = db.Column(db.Integer, unique=False, nullable=False)
+    ship = db.Column(db.String(50), unique=False, nullable=False)
+    price = db.Column(db.Integer, unique=False, nullable=False)
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -19,4 +22,15 @@ class User(db.Model):
     def __repr__(self):
         return '<User %r>' % self.username
 
-app.run()
+
+@app.route('/')
+def mainPage():
+    if(Offers.query.first() != None):
+        offers = Offers.query.all()
+        return render_template('main_page.html', offers=offers)
+    else:
+        return render_template('main_page.html')
+
+
+if __name__ == "__main__":
+    app.run(debug=True)

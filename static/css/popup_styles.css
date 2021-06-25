@@ -110,7 +110,7 @@ General parameters END
     background-color: black;
     color: white;
 }
-/* Login popup */
+/* Login */
 #popup_login{
     display: none;
 }
@@ -224,16 +224,17 @@ General parameters END
 
     width: 100%;
 
-    bottom: 18%;
+    bottom: 10%;
     left: 0;
 }
 .popup__info--form--buttons{
     display: flex;
-
     justify-content: space-around;
+    align-items: flex-end;
 }
-.popup__info--form--buttons input{
+.popup__info--form--buttons input[type=submit]{
     width: 250px;
+    height: 90px;
 
     font-size: 24px;
     font-weight: bold;
@@ -242,12 +243,11 @@ General parameters END
     color: #30B700;
 
     border: #30B700 2px solid;
-
-    margin-right: 100px;
+    border-radius: 0;
 
     cursor: pointer;
 }
-.popup__info--form--buttons input:hover{
+.popup__info--form--buttons input[type=submit]:hover{
     background-color: #30B700;
     color: white;
 
@@ -255,11 +255,13 @@ General parameters END
 }
 .popup__info--form--buttons h2{
     width: 250px;
+    max-height: 90px;
+
     border: solid 2px black;
     
     cursor: pointer;
 
-    padding: 20px 3px;
+    padding: 25px 0;
 
     transition: background-color linear 0.2s;
 }

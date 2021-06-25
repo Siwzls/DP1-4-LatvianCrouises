@@ -133,11 +133,11 @@ Main Content
     width: 450px;
 }
 /* ========== 
-Crouise offer
+Cruise offer
 ==========*/
 .crouise_offers{
     display: flex;
-    justify-content: space-between;
+    align-items: flex-start;
     flex-wrap: wrap;
 
     color: white;
@@ -156,7 +156,7 @@ Crouise offer
 
     box-shadow: 0 0 10px black;
 
-    margin-top: 80px;
+    margin: 30px auto;
 }
 .crouise_offer img{
     width: 220px;

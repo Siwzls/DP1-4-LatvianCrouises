@@ -34,7 +34,7 @@ document.addEventListener('click', (e) =>{
 // Hide popup
 for(i = 0; i < btnPopupClose.length; i++){
 btnPopupClose[i].addEventListener('click', (e) =>{
-    var popupId = e.target.closest('div[id]');
+    var popupId = e.target.parentNode.parentNode;
     switchPopup(popupId);
 });
 }
