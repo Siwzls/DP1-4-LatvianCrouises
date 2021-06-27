@@ -17,7 +17,7 @@ const singleBtns = [btnLogin, btnAddNew];
 
 document.addEventListener('click', (e) =>{
     for(i = 0; 
-        i < btnMoreDetails.length + btnEdit.length + array.length; 
+        i < btnMoreDetails.length + btnEdit.length + singleBtns.length; 
         i++)
     {
         switch(e.target){
