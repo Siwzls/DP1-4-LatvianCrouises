@@ -6,14 +6,13 @@ const btnPopupClose = document.querySelectorAll('.btn_popupClose');
 const btnAddNew = document.querySelector('#btn_addNew');
 const btnDelete = document.querySelectorAll('.btn_popupDelete');
 
+const singleBtns = [btnLogin, btnAddNew];
+
 //Popups
 const popupDetails = document.querySelector('#popup_details');
 const popupLogin = document.querySelector('#popup_login');
 const popupEdit = document.querySelector('#popup_edit');
 const popupCreate = document.querySelector('#popup_create');
-
-
-const singleBtns = [btnLogin, btnAddNew];
 
 document.addEventListener('click', (e) =>{
     for(i = 0; 
@@ -22,16 +21,20 @@ document.addEventListener('click', (e) =>{
     {
         switch(e.target){
             case btnMoreDetails[i]:
-                switchPopup(popupDetails);
+                if (popupDetails != null)
+                    switchPopup(popupDetails);
                 break;
             case singleBtns[i]:
-                switchPopup(popupLogin);
+                if (popupLogin != null)
+                    switchPopup(popupLogin);
                 break;
             case btnEdit[i]:
-                switchPopup(popupEdit);
+                if (popupEdit != null)
+                    switchPopup(popupEdit);
                 break;
-            case singleBtns[i]:
-                switchPopup(popupCreate);
+            case btnAddNew:
+                if (popupCreate != null)
+                    switchPopup(popupCreate);
                 break;
         }
     }
@@ -51,33 +54,65 @@ btnDelete[i].addEventListener('click', (e) =>{
 });
 }
 document.addEventListener('click', (e) =>{
+    const btnShips = document.querySelector('#btn_ships')
+    const btnCruises = document.querySelector('#btn_crouises');
+    const btnPorts = document.querySelector('#btn_ports');
+
     switch(e.target.id){
         case 'btn_ports':
             e.target.style.backgroundColor = "#FF8A00";
             e.target.style.color = "#fff";
-            document.querySelector('#btn_ships').style.backgroundColor = "#fff";
-            document.querySelector('#btn_ships').style.color = "#000000";
-            document.querySelector('#btn_crouises').style.backgroundColor = "#fff";
-            document.querySelector('#btn_crouises').style.color = "#000000";
+            btnShips.style.backgroundColor = "#fff";
+            btnShips.style.color = "#000000";
+            btnCruises.style.backgroundColor = "#fff";
+            btnCruises.style.color = "#000000";
             break;
         case 'btn_ships':
             e.target.style.backgroundColor = "#FF8A00";
             e.target.style.color = "#fff";
-            document.querySelector('#btn_ports').style.backgroundColor = "#fff";
-            document.querySelector('#btn_ports').style.color = "#000000";
-            document.querySelector('#btn_crouises').style.backgroundColor = "#fff";
-            document.querySelector('#btn_crouises').style.color = "#000000";
+            btnPorts.style.backgroundColor = "#fff";
+            btnPorts.style.color = "#000000";
+            btnCruises.style.backgroundColor = "#fff";
+            btnCruises.style.color = "#000000";
             break;
         case 'btn_crouises':
             e.target.style.backgroundColor = "#FF8A00";
             e.target.style.color = "#fff";
-            document.querySelector('#btn_ports').style.backgroundColor = "#fff";
-            document.querySelector('#btn_ports').style.color = "#000000";
-            document.querySelector('#btn_ships').style.backgroundColor = "#fff";
-            document.querySelector('#btn_ships').style.color = "#000000";
+            btnPorts.style.backgroundColor = "#fff";
+            btnPorts.style.color = "#000000";
+            btnShips.style.backgroundColor = "#fff";
+            btnShips.style.color = "#000000";
             break;
     }
 })
+const selectType = document.getElementById("selectType");
+selectType.onchange = function () {
+    const departDate = document.getElementsByClassName("departDate");
+    const ship = document.getElementsByClassName("ship");
+    const price = document.getElementsByClassName("price");
+
+    let index = selectType.selectedIndex;
+    let option = selectType[index].value;
+
+    for(i in price && ship && departDate){
+        switch(option){
+            case "Port":
+                price[i].style.display = "block";
+                ship[i].style.display = "none";
+                departDate[i].style.display = "none";
+                break;
+            case "Ship":
+                ship[i].style.display = "block";
+                price[i].style.display = "none";
+                departDate[i].style.display = "none";
+                break;
+            case "Cruise":
+                price[i].style.display = "block";
+                ship[i].style.display = "block";
+                departDate[i].style.display = "block";
+        }
+    }
+}
 function switchPopup(popupToClose){
     if(popupToClose.style.display == "flex"){
         popupToClose.style.display = "none";

@@ -17,11 +17,11 @@
          -->
         <header>
             <div class="content">
-                <h1 class="header__title content">Latvian<span>Crouises</span></h1>
+                <h1 class="header__title content">Latvian<span>Cruises</span></h1>
                 <h5>Admin pannel</h5>
             </div>
             <h2 class="content">Statistic</h2>
-            <a href="main_page.html" class="header__inner content">Exit from admin pannel</a>
+            <a href="/" class="header__inner content">Exit from admin pannel</a>
         </header>
         <!-- 
         Header end 
@@ -29,14 +29,12 @@
         <div class="typeOfInfo content">
             <h2 id="btn_ports">Ports</h2>
             <h2 id="btn_ships">Ships</h2>
-            <h2 id="btn_crouises">Crouises</h2>
+            <h2 id="btn_crouises">Cruises</h2>
             <h2 id="btn_addNew">Add new</h2>
         </div>
         <div class="search content">
             <h1>Search</h1>
-            <form>
-                <input type="text" name="" id="">
-            </form>
+            <input type="text">
         </div>
         <div class="infoBlocks content">
             <div class="crouise_offers">
@@ -104,32 +102,38 @@
                     <div class="popup__info--content">
                         <h4>Info:</h4>
                         <div class="popup_info--content--inner">
-                            <div class="popup__info--parameters">
-                                <h4>Type:</h4>
-                                <h4>Department date:</h4>
-                                <h4>Ship:</h4>
-                                <h4>Price:</h4>
-                            </div>
-                            <div class="popup__info--data">
-                                <form>
-                                    <div>
-                                        <select name="" id="">
-                                            <option value="Port">Port</option>
-                                            <option value="Ship">Ship</option>
-                                            <option value="Crouise">Crouise</option>
-                                        </select>
-                                        <input type="text">
-                                        <input type="text">
-                                        <input type="text">
+                            <form>
+                                <div class="popup__info--form--inputs">
+                                    <h4>Type:</h4>
+                                    <select name="selectType" id="selectType">
+                                        <option disabled selected value>Select type</option>
+                                        <option value="Port">Port</option>
+                                        <option value="Ship">Ship</option>
+                                        <option value="Cruise">Cruise</option>
+                                    </select>
+                                </div>
+                                <div class="popup__info--form--inputs">
+                                    <h4 class="departDate">Department date:</h4>
+                                    <input type="text" name="departDate" id="departDate" class="departDate">
+                                </div>
+                                <div class="popup__info--form--inputs">
+                                    <h4 class="ship">Ship:</h4>
+                                    <select name="ship" id="ship" class="ship">
+                                        <option disabled selected value>Select ship</option>
+                                        <option value="Port">TestShip</option>
+                                    </select>
+                                </div>
+                                <div class="popup__info--form--inputs">
+                                    <h4 class="price">Price:</h4>
+                                    <input type="text" name="price" id="price" class="price">
+                                </div>
+                                <div class="popup__info--form">
+                                    <div class="popup__info--form--buttons">
+                                        <input type="submit" value="Save">
+                                        <h2 id="btn_delete" class="">Cancel</h2>
                                     </div>
-                                    <div class="popup__info--form">
-                                        <div class="popup__info--form--buttons">
-                                                <input type="submit" value="Save">
-                                            <h2 id="btn_delete" class="">Cancel</h2>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
+                                </div>
+                            </form>
                         </div>
                     </div> 
                 </div>

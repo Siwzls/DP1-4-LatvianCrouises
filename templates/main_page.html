@@ -8,12 +8,12 @@
         rel="stylesheet">
         <link rel="stylesheet" href="../static/css/main.css">
         <link rel="stylesheet" href="../static/css/popup_styles.css">
-        <title>LatvianCrouises</title>
+        <title>LatvianCruises</title>
     </head>
     <body>
         <!-- Header -->
         <header>
-            <h1 class="header__title header_inner content">Latvian<span>Crouises</span></h1>
+            <h1 class="header__title header_inner content">Latvian<span>Cruises</span></h1>
             <h5 id="login" class="header_inner content">Login as admin</h5>
             <div class="header_languages">
                 <a href="#">EN</a>
@@ -103,7 +103,7 @@
                         </div> 
                     </div>
                     <div class="popup_btns">
-                        <h2 id="btn_bookCruise">Book a crouise</h2>
+                        <h2 id="btn_bookCruise">Book a cruise</h2>
                         <h2 id="btn_printInfo">Print Info</h2>
                     </div> 
                 </div>
@@ -117,12 +117,11 @@
                 <div class="popup__content--login">
                     <h1>Loging in</h1>
                     <div>
-                        <form>
-                            <input type="text" name="user" id="user" placeholder="Username">
-                            <input type="text" name="password" id="password" placeholder="Password">
+                        <form method="POST">
+                            <input type="text" name="user" id="user" placeholder="Username(admin)">
+                            <input type="password" name="password" id="password" placeholder="Password(admin)">
                             <input type="submit" value="Log in">
                         </form>
-                        <a href="admin_panel.html">Get to admin panel(this is temporary function)</a>
                     </div>
                 </div>
             </div>
