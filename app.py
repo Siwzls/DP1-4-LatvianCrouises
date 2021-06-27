@@ -1,5 +1,5 @@
 from enum import unique
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, url_for
 from flask.sessions import NullSession
 from flask_sqlalchemy import SQLAlchemy
 
@@ -14,23 +14,44 @@ class Offers(db.Model):
     ship = db.Column(db.String(50), unique=False, nullable=False)
     price = db.Column(db.Integer, unique=False, nullable=False)
 
-class User(db.Model):
+class Users(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(80), unique=True, nullable=False)
-    email = db.Column(db.String(120), unique=True, nullable=False)
+    password = db.Column(db.String(120), unique=True, nullable=False)
 
     def __repr__(self):
         return '<User %r>' % self.username
 
 
-@app.route('/')
+@app.route('/', methods=['POST', 'GET'])
 def mainPage():
-    if(Offers.query.first() != None):
-        offers = Offers.query.all()
-        return render_template('main_page.html', offers=offers)
+    admin = Users.query.first()
+    if request.method == "POST":
+        print("post")
+        user = request.form['user']
+        password = request.form['password']
+        if admin.username == user and admin.password == password:
+            print("succseful")
+            return redirect('admin_panel.html')
+        else:
+            return "Ошибка"
     else:
-        return render_template('main_page.html')
+        if Offers.query.first() != None:
+            offers = Offers.query.all()
+            return render_template('main_page.html', offers=offers)
+        else:
+            return render_template('main_page.html')
+
+
+@app.route('/admin_panel.html')
+def adminPanel():
+    if Offers.query.first() != None:
+        offers = Offers.query.all()
+        return render_template('admin_panel.html', offers=offers)
+    else:
+        return render_template('admin_panel.html')        
+    
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True, use_reloader=False, host='0.0.0.0')

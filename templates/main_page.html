@@ -11,9 +11,7 @@
         <title>LatvianCrouises</title>
     </head>
     <body>
-        <!-- 
-        Header
-         -->
+        <!-- Header -->
         <header>
             <h1 class="header__title header_inner content">Latvian<span>Crouises</span></h1>
             <h5 id="login" class="header_inner content">Login as admin</h5>
@@ -23,17 +21,13 @@
                 <a href="../templates/main_page_ru.html">RU</a>
             </div>
         </header>
-        <!-- 
-        Header end 
-        -->
+        <!-- Header end -->
         <div class="heading_title">
             <h1 class="content">The best cruise ships in Latvia!</h1>
         </div>
         <div class="main_content">
             <div class="content">
-                <!-- 
-                Filter
-                 -->                
+                <!-- Filter -->                
                 <div class="filter">
                     <div id="filter_from" class="filter__inner">
                         <h2>From</h2>
@@ -64,9 +58,7 @@
                         </div>
                     </div>
                 </div>
-                 <!-- 
-                Filter end
-                 -->       
+                 <!-- Filter end -->       
                 <div class="crouise_offers">
                     {% for offer in offers %}
                     <div class="crouise_offer">
@@ -119,15 +111,15 @@
         </div>
         <!-- Details END-->
         <!-- Login -->
-        <div id="popup_login" class="popup">
+        <div id="popup_login" class="popup" style="display: none;">
             <div class="popup__window">
                 <h4 class="btn_popupClose">Close</h4>
                 <div class="popup__content--login">
                     <h1>Loging in</h1>
                     <div>
                         <form>
-                            <input type="text" placeholder="Username">
-                            <input type="text" placeholder="Password">
+                            <input type="text" name="user" id="user" placeholder="Username">
+                            <input type="text" name="password" id="password" placeholder="Password">
                             <input type="submit" value="Log in">
                         </form>
                         <a href="admin_panel.html">Get to admin panel(this is temporary function)</a>
@@ -152,6 +144,7 @@
                 </div>
             </div>
         </footer>
-        <script src="../static/js/app.js"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/app.js') }}"></script>
+        <script type="text/javascript" src="../static/js/app.js"></script>
     </body>
 </html>

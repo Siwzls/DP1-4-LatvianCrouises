@@ -12,6 +12,8 @@ const popupLogin = document.querySelector('#popup_login');
 const popupEdit = document.querySelector('#popup_edit');
 const popupCreate = document.querySelector('#popup_create');
 
+console.log("test");
+
 document.addEventListener('click', (e) =>{
     for(i = 0; i < btnMoreDetails.length + btnEdit.length; i++)
     {
@@ -74,8 +76,11 @@ document.addEventListener('click', (e) =>{
     }
 })
 function switchPopup(popupToClose){
-    if(popupToClose.style.display == "flex")
+    if(popupToClose.style.display == "flex"){
         popupToClose.style.display = "none";
-    else
+    }
+    else{
         popupToClose.style.display = "flex";
+    }
+    console.log(popupToClose.style.display);
 }
