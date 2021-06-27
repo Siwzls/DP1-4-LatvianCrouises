@@ -12,22 +12,25 @@ const popupLogin = document.querySelector('#popup_login');
 const popupEdit = document.querySelector('#popup_edit');
 const popupCreate = document.querySelector('#popup_create');
 
-console.log("test");
+
+const singleBtns = [btnLogin, btnAddNew];
 
 document.addEventListener('click', (e) =>{
-    for(i = 0; i < btnMoreDetails.length + btnEdit.length; i++)
+    for(i = 0; 
+        i < btnMoreDetails.length + btnEdit.length + array.length; 
+        i++)
     {
         switch(e.target){
             case btnMoreDetails[i]:
                 switchPopup(popupDetails);
                 break;
-            case btnLogin:
+            case singleBtns[i]:
                 switchPopup(popupLogin);
                 break;
             case btnEdit[i]:
                 switchPopup(popupEdit);
                 break;
-            case btnAddNew:
+            case singleBtns[i]:
                 switchPopup(popupCreate);
                 break;
         }
