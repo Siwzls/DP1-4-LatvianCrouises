@@ -6,14 +6,13 @@ const btnPopupClose = document.querySelectorAll('.btn_popupClose');
 const btnAddNew = document.querySelector('#btn_addNew');
 const btnDelete = document.querySelectorAll('.btn_popupDelete');
 
+const singleBtns = [btnLogin, btnAddNew];
+
 //Popups
 const popupDetails = document.querySelector('#popup_details');
 const popupLogin = document.querySelector('#popup_login');
 const popupEdit = document.querySelector('#popup_edit');
 const popupCreate = document.querySelector('#popup_create');
-
-
-const singleBtns = [btnLogin, btnAddNew];
 
 document.addEventListener('click', (e) =>{
     for(i = 0; 
@@ -22,16 +21,20 @@ document.addEventListener('click', (e) =>{
     {
         switch(e.target){
             case btnMoreDetails[i]:
-                switchPopup(popupDetails);
+                if (popupDetails != null)
+                    switchPopup(popupDetails);
                 break;
             case singleBtns[i]:
-                switchPopup(popupLogin);
+                if (popupLogin != null)
+                    switchPopup(popupLogin);
                 break;
             case btnEdit[i]:
-                switchPopup(popupEdit);
+                if (popupEdit != null)
+                    switchPopup(popupEdit);
                 break;
-            case singleBtns[i]:
-                switchPopup(popupCreate);
+            case btnAddNew:
+                if (popupCreate != null)
+                    switchPopup(popupCreate);
                 break;
         }
     }
@@ -78,6 +81,40 @@ document.addEventListener('click', (e) =>{
             break;
     }
 })
+const selectType = document.getElementById("selectType");
+selectType.onchange = function () {
+    const departDate = document.getElementsByClassName("departDate");
+    const ship = document.getElementsByClassName("ship");
+    const price = document.getElementsByClassName("price");
+
+    let index = selectType.selectedIndex;
+    let option = selectType[index].value;
+
+    console.log(index);
+
+    
+    for(i in price && ship && departDate){
+        if(option == "Port"){
+            price[i].style.display = "block";
+        }
+        else{
+            price[i].style.display = "none";
+        }
+        if(option == "Ship" || option == "Cruise"){
+            ship[i].style.display = "block";
+        }
+        else{
+            ship[i].style.display = "none";
+        }
+        if(option == "Cruise"){
+            departDate[i].style.display = "block";
+        }
+        else{
+            departDate[i].style.display = "none";
+        }
+    }
+    console.log(option);
+}
 function switchPopup(popupToClose){
     if(popupToClose.style.display == "flex"){
         popupToClose.style.display = "none";

@@ -216,7 +216,15 @@ General parameters END
 #popup_create .popup__info--parameters{
     width: 50%;
 }
-#popup_create .popup__info--data input{
+#popup_create .popup__info--parameters h4{
+    display: none;
+}
+#popup_create .popup__info--parameters h4:first-of-type{
+    display: block;
+}
+#popup_create .popup__info--data input[type=text]{
+    display: none;
+
     margin-top: 30px;
 }
 .popup__info--form{

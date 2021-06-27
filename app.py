@@ -3,6 +3,8 @@ from flask import Flask, render_template, request, redirect, url_for
 from flask.sessions import NullSession
 from flask_sqlalchemy import SQLAlchemy
 
+print("Flask is working!")
+
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///main.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
@@ -42,6 +44,10 @@ def mainPage():
             return render_template('main_page.html')
 
 
+@app.route('/', methods=['POST', 'GET'])
+mainPage()
+
+
 @app.route('/admin_panel.html')
 def adminPanel():
     if Offers.query.first() != None:
@@ -54,4 +60,3 @@ def adminPanel():
 
 if __name__ == "__main__":
     app.run(debug=True, use_reloader=False, host='0.0.0.0')
-print("Flask is working!")
