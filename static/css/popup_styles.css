@@ -129,7 +129,7 @@ General parameters END
 
     margin-top: 50px;
 }
-.popup__content--login input:last-of-type{
+.popup__content--login input[type=submit]{
     width: 300px;
 
     background-color: white;
@@ -140,7 +140,7 @@ General parameters END
 
     transition: 0.2s linear;
 }
-.popup__content--login input:last-of-type:hover{
+.popup__content--login input[type=submit]:hover{
     background-color: black;
     color: white;
 }

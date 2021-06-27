@@ -32,20 +32,15 @@ def mainPage():
         user = request.form['user']
         password = request.form['password']
         if admin.username == user and admin.password == password:
-            print("succseful")
             return redirect('admin_panel.html')
         else:
-            return "Ошибка"
+            return redirect('/')
     else:
         if Offers.query.first() != None:
             offers = Offers.query.all()
             return render_template('main_page.html', offers=offers)
         else:
             return render_template('main_page.html')
-
-
-@app.route('/', methods=['POST', 'GET'])
-mainPage()
 
 
 @app.route('/admin_panel.html')
