@@ -110,7 +110,7 @@ General parameters END
     background-color: black;
     color: white;
 }
-/* Login popup */
+/* Login */
 #popup_login{
     display: none;
 }
@@ -206,20 +206,35 @@ General parameters END
 #popup_create{
     display: none;
 }
+#popup_create .popup__content{
+    position: static;
+}
 #popup_create .popup_info--content--inner{
     display: flex;
     align-items: baseline;
 }
 #popup_create .popup__info--parameters{
     width: 50%;
-
-    /* margin-top: 32px auto; */
 }
 #popup_create .popup__info--data input{
     margin-top: 30px;
 }
-#popup_create .popup__info--data input:last-child{
+.popup__info--form{
+    position: absolute;
+
+    width: 100%;
+
+    bottom: 10%;
+    left: 0;
+}
+.popup__info--form--buttons{
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+}
+.popup__info--form--buttons input[type=submit]{
     width: 250px;
+    height: 90px;
 
     font-size: 24px;
     font-weight: bold;
@@ -228,12 +243,25 @@ General parameters END
     color: #30B700;
 
     border: #30B700 2px solid;
+    border-radius: 0;
 
     cursor: pointer;
 }
-#popup_create .popup__info--data input:last-child:hover{
+.popup__info--form--buttons input[type=submit]:hover{
     background-color: #30B700;
     color: white;
 
     transition: ease 0.2s;
+}
+.popup__info--form--buttons h2{
+    width: 250px;
+    max-height: 90px;
+
+    border: solid 2px black;
+    
+    cursor: pointer;
+
+    padding: 25px 0;
+
+    transition: background-color linear 0.2s;
 }

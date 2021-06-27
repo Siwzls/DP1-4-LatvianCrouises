@@ -4,6 +4,7 @@ const btnEdit = document.querySelectorAll('.btn_edit');
 const btnLogin = document.querySelector('#login');
 const btnPopupClose = document.querySelectorAll('.btn_popupClose');
 const btnAddNew = document.querySelector('#btn_addNew');
+const btnDelete = document.querySelectorAll('.btn_popupDelete');
 
 //Popups
 const popupDetails = document.querySelector('#popup_details');
@@ -11,20 +12,25 @@ const popupLogin = document.querySelector('#popup_login');
 const popupEdit = document.querySelector('#popup_edit');
 const popupCreate = document.querySelector('#popup_create');
 
+
+const singleBtns = [btnLogin, btnAddNew];
+
 document.addEventListener('click', (e) =>{
-    for(i = 0; i < btnMoreDetails.length + btnEdit.length; i++)
+    for(i = 0; 
+        i < btnMoreDetails.length + btnEdit.length + array.length; 
+        i++)
     {
         switch(e.target){
             case btnMoreDetails[i]:
                 switchPopup(popupDetails);
                 break;
-            case btnLogin:
+            case singleBtns[i]:
                 switchPopup(popupLogin);
                 break;
             case btnEdit[i]:
                 switchPopup(popupEdit);
                 break;
-            case btnAddNew:
+            case singleBtns[i]:
                 switchPopup(popupCreate);
                 break;
         }
@@ -34,6 +40,13 @@ document.addEventListener('click', (e) =>{
 for(i = 0; i < btnPopupClose.length; i++){
 btnPopupClose[i].addEventListener('click', (e) =>{
     var popupId = e.target.parentNode.parentNode;
+    switchPopup(popupId);
+});
+}
+// Delete popup
+for(i = 0; i < btnDelete.length; i++){
+btnDelete[i].addEventListener('click', (e) =>{
+    var popupId = e.target.closest('div[id]');
     switchPopup(popupId);
 });
 }
@@ -66,8 +79,11 @@ document.addEventListener('click', (e) =>{
     }
 })
 function switchPopup(popupToClose){
-    if(popupToClose.style.display == "flex")
+    if(popupToClose.style.display == "flex"){
         popupToClose.style.display = "none";
-    else
+    }
+    else{
         popupToClose.style.display = "flex";
+    }
+    console.log(popupToClose.style.display);
 }
