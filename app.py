@@ -27,7 +27,6 @@ class Users(db.Model):
 def mainPage():
     admin = Users.query.first()
     if request.method == "POST":
-        print("post")
         user = request.form['user']
         password = request.form['password']
         if admin.username == user and admin.password == password:
@@ -55,3 +54,4 @@ def adminPanel():
 
 if __name__ == "__main__":
     app.run(debug=True, use_reloader=False, host='0.0.0.0')
+print("Flask is working!")
