@@ -102,32 +102,34 @@
                     <div class="popup__info--content">
                         <h4>Info:</h4>
                         <div class="popup_info--content--inner">
-                            <div class="popup__info--parameters">
-                                <h4>Type:</h4>
-                                <h4 class="departDate">Department date:</h4>
-                                <h4 class="ship">Ship:</h4>
-                                <h4 class="price">Price:</h4>
-                            </div>
-                            <div class="popup__info--data">
-                                <form>
-                                    <div>
-                                        <select name="selectType" id="selectType">
-                                            <option value="Port">Port</option>
-                                            <option value="Ship">Ship</option>
-                                            <option value="Cruise">Cruise</option>
-                                        </select>
-                                        <input type="text" name="departDate" id="departDate" class="departDate">
-                                        <input type="text" name="ship" id="ship" class="ship">
-                                        <input type="text" name="price" id="price" class="price">
+                            <form>
+                                <div class="popup__info--form--inputs">
+                                    <h4>Type:</h4>
+                                    <select name="selectType" id="selectType">
+                                        <option value="Port">Port</option>
+                                        <option value="Ship">Ship</option>
+                                        <option value="Cruise">Cruise</option>
+                                    </select>
+                                </div>
+                                <div class="popup__info--form--inputs">
+                                    <h4 class="departDate">Department date:</h4>
+                                    <input type="text" name="departDate" id="departDate" class="departDate">
+                                </div>
+                                <div class="popup__info--form--inputs">
+                                    <h4 class="ship">Ship:</h4>
+                                    <input type="text" name="ship" id="ship" class="ship">
+                                </div>
+                                <div class="popup__info--form--inputs">
+                                    <h4 class="price">Price:</h4>
+                                    <input type="text" name="price" id="price" class="price">
+                                </div>
+                                <div class="popup__info--form">
+                                    <div class="popup__info--form--buttons">
+                                        <input type="submit" value="Save">
+                                        <h2 id="btn_delete" class="">Cancel</h2>
                                     </div>
-                                    <div class="popup__info--form">
-                                        <div class="popup__info--form--buttons">
-                                            <input type="submit" value="Save">
-                                            <h2 id="btn_delete" class="">Cancel</h2>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
+                                </div>
+                            </form>
                         </div>
                     </div> 
                 </div>

@@ -213,20 +213,21 @@ General parameters END
     display: flex;
     align-items: baseline;
 }
+#popup_create .popup_info--content--inner form{
+    width: 90%;
+}
+.departDate, .ship, .price{
+    display: none;
+}
 #popup_create .popup__info--parameters{
     width: 50%;
 }
-#popup_create .popup__info--parameters h4{
-    display: none;
-}
-#popup_create .popup__info--parameters h4:first-of-type{
-    display: block;
-}
-#popup_create .popup__info--data input[type=text]{
-    display: none;
-
+#popup_create 
+.popup__info--form--inputs input[type=text], 
+#popup_create select{
     margin-top: 30px;
 }
+
 .popup__info--form{
     position: absolute;
 
@@ -234,6 +235,12 @@ General parameters END
 
     bottom: 10%;
     left: 0;
+}
+.popup__info--form--inputs{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+
 }
 .popup__info--form--buttons{
     display: flex;
