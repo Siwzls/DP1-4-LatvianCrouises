@@ -72,22 +72,21 @@
                                 <h4>Price:</h4>
                             </div>
                             <div class="popup__info--data">
-                                <h4>12.02.2004</h4>
-                                <h4>Tallink</h4>
-                                <h4>5€</h4>
-                            </div>
-                            <div class="popup__info--btn_edit">
-                                <img src="../static/images/editIcon.png" alt="">
-                                <img src="../static/images/editIcon.png" alt="">
-                                <img src="../static/images/editIcon.png" alt="">
+                                {% for offer in offers %}
+                                <h4>{{ offer.departDate }}</h4>
+                                <h4>{{ offer.ship }}</h4>
+                                <h4>{{ offer.price }}€</h4>
+                                {% endfor %}
                             </div>
                         </div>
                     </div> 
                 </div>
-                <div class="popup_btns">
-                    <h2 id="btn_save">Save</h2>
-                    <h2 id="btn_delete" class="btn_popupDelete">Delete</h2>
-                </div>
+                <form>
+                    <div class="popup_btns">
+                        <h2 id="btn_save">Save</h2>
+                        <h2 id="btn_delete" class="btn_popupDelete">Delete</h2>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
@@ -102,7 +101,7 @@
                     <div class="popup__info--content">
                         <h4>Info:</h4>
                         <div class="popup_info--content--inner">
-                            <form>
+                            <form method="POST">
                                 <div class="popup__info--form--inputs">
                                     <h4>Type:</h4>
                                     <select name="selectType" id="selectType">
@@ -113,15 +112,30 @@
                                     </select>
                                 </div>
                                 <div class="popup__info--form--inputs">
-                                    <h4 class="departDate">Department date:</h4>
-                                    <input type="text" name="departDate" id="departDate" class="departDate">
+                                    <h4 id="shipTitle" class="ship">Ship:</h4>
+                                    <input type="text" name="shipText" id="shipText" class="ship">
+                                    <select name="shipSelect" id="shipSelect" class="ship">
+                                        <option disabled selected value>Select ship</option>
+                                        <option value="Ship">TestShip</option>
+                                    </select>
                                 </div>
                                 <div class="popup__info--form--inputs">
-                                    <h4 class="ship">Ship:</h4>
-                                    <select name="ship" id="ship" class="ship">
-                                        <option disabled selected value>Select ship</option>
-                                        <option value="Port">TestShip</option>
+                                    <h4 class="fromTo">From:</h4>
+                                    <select name="from" id="from" class="fromTo">
+                                        <option disabled selected value>Select port</option>
+                                        <option value="TestPort">TestPort</option>
                                     </select>
+                                </div>
+                                <div class="popup__info--form--inputs">
+                                    <h4 class="fromTo">To:</h4>
+                                    <select name="to" id="to" class="fromTo">
+                                        <option disabled selected value>Select port</option>
+                                        <option value="TestPort">TestPort</option>
+                                    </select>
+                                </div>
+                                <div class="popup__info--form--inputs">
+                                    <h4 class="departDate">Department date:</h4>
+                                    <input type="text" name="departDate" id="departDate" class="departDate">
                                 </div>
                                 <div class="popup__info--form--inputs">
                                     <h4 class="price">Price:</h4>
@@ -137,10 +151,6 @@
                         </div>
                     </div> 
                 </div>
-                <!-- <div class="popup_btns">
-                    <h2 id="btn_save">Save</h2>
-                    <h2 id="btn_delete" class="">Cancel</h2>
-                </div>  -->
             </div>
         </div>
     </div>

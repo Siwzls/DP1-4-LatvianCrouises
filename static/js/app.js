@@ -4,9 +4,6 @@ const btnEdit = document.querySelectorAll('.btn_edit');
 const btnLogin = document.querySelector('#login');
 const btnPopupClose = document.querySelectorAll('.btn_popupClose');
 const btnAddNew = document.querySelector('#btn_addNew');
-const btnDelete = document.querySelectorAll('.btn_popupDelete');
-
-const singleBtns = [btnLogin, btnAddNew];
 
 //Popups
 const popupDetails = document.querySelector('#popup_details');
@@ -16,7 +13,7 @@ const popupCreate = document.querySelector('#popup_create');
 
 document.addEventListener('click', (e) =>{
     for(i = 0; 
-        i < btnMoreDetails.length + btnEdit.length + singleBtns.length; 
+        i < btnMoreDetails.length + btnEdit.length; 
         i++)
     {
         switch(e.target){
@@ -24,7 +21,7 @@ document.addEventListener('click', (e) =>{
                 if (popupDetails != null)
                     switchPopup(popupDetails);
                 break;
-            case singleBtns[i]:
+            case btnLogin:
                 if (popupLogin != null)
                     switchPopup(popupLogin);
                 break;
@@ -35,6 +32,7 @@ document.addEventListener('click', (e) =>{
             case btnAddNew:
                 if (popupCreate != null)
                     switchPopup(popupCreate);
+                console.log(btnAddNew);
                 break;
         }
     }
@@ -43,13 +41,6 @@ document.addEventListener('click', (e) =>{
 for(i = 0; i < btnPopupClose.length; i++){
 btnPopupClose[i].addEventListener('click', (e) =>{
     var popupId = e.target.parentNode.parentNode;
-    switchPopup(popupId);
-});
-}
-// Delete popup
-for(i = 0; i < btnDelete.length; i++){
-btnDelete[i].addEventListener('click', (e) =>{
-    var popupId = e.target.closest('div[id]');
     switchPopup(popupId);
 });
 }
@@ -88,28 +79,51 @@ document.addEventListener('click', (e) =>{
 const selectType = document.getElementById("selectType");
 selectType.onchange = function () {
     const departDate = document.getElementsByClassName("departDate");
-    const ship = document.getElementsByClassName("ship");
+    const shipSelect = document.getElementById("shipSelect");
+    const shipText = document.getElementById("shipText");
+    const shipTitle = document.getElementById("shipTitle");
     const price = document.getElementsByClassName("price");
+    const fromTo = document.getElementsByClassName("fromTo");
+
+    console.log(fromTo.length);
 
     let index = selectType.selectedIndex;
     let option = selectType[index].value;
 
-    for(i in price && ship && departDate){
+    for(i in price && fromTo && departDate){
         switch(option){
             case "Port":
                 price[i].style.display = "block";
-                ship[i].style.display = "none";
+                shipTitle.style.display = "none";
+                shipText.style.display = "none";
+                shipSelect.style.display = "none";
                 departDate[i].style.display = "none";
+                fromTo[0].style.display = "none"; 
+                fromTo[1].style.display = "none"; 
+                fromTo[2].style.display = "none"; 
+                fromTo[3].style.display = "none"; 
                 break;
             case "Ship":
-                ship[i].style.display = "block";
+                shipText.style.display = "block";
+                shipTitle.style.display = "block";
+                shipSelect.style.display = "none";
                 price[i].style.display = "none";
                 departDate[i].style.display = "none";
+                fromTo[0].style.display = "none"; 
+                fromTo[1].style.display = "none"; 
+                fromTo[2].style.display = "none"; 
+                fromTo[3].style.display = "none"; 
                 break;
             case "Cruise":
                 price[i].style.display = "block";
-                ship[i].style.display = "block";
+                shipSelect.style.display = "block";
+                shipTitle.style.display = "block";
                 departDate[i].style.display = "block";
+                fromTo[0].style.display = "block"; 
+                fromTo[1].style.display = "block"; 
+                fromTo[2].style.display = "block"; 
+                fromTo[3].style.display = "block"; 
+                shipText.style.display = "none";
         }
     }
 }
@@ -120,5 +134,4 @@ function switchPopup(popupToClose){
     else{
         popupToClose.style.display = "flex";
     }
-    console.log(popupToClose.style.display);
 }
