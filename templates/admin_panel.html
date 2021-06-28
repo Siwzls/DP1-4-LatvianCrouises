@@ -72,22 +72,21 @@
                                 <h4>Price:</h4>
                             </div>
                             <div class="popup__info--data">
-                                <h4>12.02.2004</h4>
-                                <h4>Tallink</h4>
-                                <h4>5€</h4>
-                            </div>
-                            <div class="popup__info--btn_edit">
-                                <img src="../static/images/editIcon.png" alt="">
-                                <img src="../static/images/editIcon.png" alt="">
-                                <img src="../static/images/editIcon.png" alt="">
+                                {% for offer in offers %}
+                                <h4>{{ offer.departDate }}</h4>
+                                <h4>{{ offer.ship }}</h4>
+                                <h4>{{ offer.price }}€</h4>
+                                {% endfor %}
                             </div>
                         </div>
                     </div> 
                 </div>
-                <div class="popup_btns">
-                    <h2 id="btn_save">Save</h2>
-                    <h2 id="btn_delete" class="btn_popupDelete">Delete</h2>
-                </div>
+                <form action="">
+                    <div class="popup_btns">
+                        <h2 id="btn_save">Save</h2>
+                        <h2 id="btn_delete" class="btn_popupDelete">Delete</h2>
+                    </div>
+                </form>
             </div>
         </div>
     </div>

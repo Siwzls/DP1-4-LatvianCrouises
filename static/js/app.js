@@ -16,7 +16,7 @@ const popupCreate = document.querySelector('#popup_create');
 
 document.addEventListener('click', (e) =>{
     for(i = 0; 
-        i < btnMoreDetails.length + btnEdit.length + singleBtns.length; 
+        i < btnMoreDetails.length + btnEdit.length; 
         i++)
     {
         switch(e.target){
@@ -24,7 +24,7 @@ document.addEventListener('click', (e) =>{
                 if (popupDetails != null)
                     switchPopup(popupDetails);
                 break;
-            case singleBtns[i]:
+            case btnLogin:
                 if (popupLogin != null)
                     switchPopup(popupLogin);
                 break;
@@ -43,13 +43,6 @@ document.addEventListener('click', (e) =>{
 for(i = 0; i < btnPopupClose.length; i++){
 btnPopupClose[i].addEventListener('click', (e) =>{
     var popupId = e.target.parentNode.parentNode;
-    switchPopup(popupId);
-});
-}
-// Delete popup
-for(i = 0; i < btnDelete.length; i++){
-btnDelete[i].addEventListener('click', (e) =>{
-    var popupId = e.target.closest('div[id]');
     switchPopup(popupId);
 });
 }
@@ -120,5 +113,4 @@ function switchPopup(popupToClose){
     else{
         popupToClose.style.display = "flex";
     }
-    console.log(popupToClose.style.display);
 }

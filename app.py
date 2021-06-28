@@ -1,20 +1,35 @@
 from enum import unique
+from os import name
 from flask import Flask, render_template, request, redirect, url_for
 from flask.sessions import NullSession
 from flask_sqlalchemy import SQLAlchemy
-
-print("Flask is working!")
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///main.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
-class Offers(db.Model):
+
+
+class Cruises(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     departDate = db.Column(db.Integer, unique=False, nullable=False)
     ship = db.Column(db.String(50), unique=False, nullable=False)
+    floatsFrom = db.Column(db.String(50), unique=False, nullable=False)
+    floatsTo = db.Column(db.String(50), unique=False, nullable=False)
     price = db.Column(db.Integer, unique=False, nullable=False)
+
+class Ships(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    ship = db.Column(db.String(50), unique=True, nullable=False)
+    passengerCapacity = db.Column(db.Integer, unique=False, nullable=False)
+    price = db.Column(db.Integer, unique=False, nullable=False)
+
+class Ports(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(50), unique=True, nullable=False)
+    country = db.Column(db.String(50), unique=False, nullable=False)
+    shipsCapacity = db.Column(db.Integer, unique=False, nullable=False)
 
 class Users(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -32,21 +47,21 @@ def mainPage():
         user = request.form['user']
         password = request.form['password']
         if admin.username == user and admin.password == password:
-            return redirect('admin_panel.html')
+            return redirect('/admin_panel')
         else:
             return redirect('/')
     else:
-        if Offers.query.first() != None:
-            offers = Offers.query.all()
+        if Cruises.query.first() != None:
+            offers = Cruises.query.all()
             return render_template('main_page.html', offers=offers)
         else:
             return render_template('main_page.html')
 
 
-@app.route('/admin_panel.html')
+@app.route('/admin_panel')
 def adminPanel():
-    if Offers.query.first() != None:
-        offers = Offers.query.all()
+    if Cruises.query.first() != None:
+        offers = Cruises.query.all()
         return render_template('admin_panel.html', offers=offers)
     else:
         return render_template('admin_panel.html')        
