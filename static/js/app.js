@@ -18,21 +18,16 @@ document.addEventListener('click', (e) =>{
     {
         switch(e.target){
             case btnMoreDetails[i]:
-                if (popupDetails != null)
-                    switchPopup(popupDetails);
+                switchPopup(popupDetails);
                 break;
             case btnLogin:
-                if (popupLogin != null)
-                    switchPopup(popupLogin);
+                switchPopup(popupLogin);
                 break;
             case btnEdit[i]:
-                if (popupEdit != null)
-                    switchPopup(popupEdit);
+                switchPopup(popupEdit);
                 break;
             case btnAddNew:
-                if (popupCreate != null)
-                    switchPopup(popupCreate);
-                console.log(btnAddNew);
+                switchPopup(popupCreate);
                 break;
         }
     }
@@ -85,8 +80,6 @@ selectType.onchange = function () {
     const price = document.getElementsByClassName("price");
     const fromTo = document.getElementsByClassName("fromTo");
 
-    console.log(fromTo.length);
-
     let index = selectType.selectedIndex;
     let option = selectType[index].value;
 
@@ -134,4 +127,5 @@ function switchPopup(popupToClose){
     else{
         popupToClose.style.display = "flex";
     }
+    console.log(popupToClose.style.display);
 }
