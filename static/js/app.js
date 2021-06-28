@@ -4,9 +4,6 @@ const btnEdit = document.querySelectorAll('.btn_edit');
 const btnLogin = document.querySelector('#login');
 const btnPopupClose = document.querySelectorAll('.btn_popupClose');
 const btnAddNew = document.querySelector('#btn_addNew');
-const btnDelete = document.querySelectorAll('.btn_popupDelete');
-
-const singleBtns = [btnLogin, btnAddNew];
 
 //Popups
 const popupDetails = document.querySelector('#popup_details');
@@ -16,7 +13,7 @@ const popupCreate = document.querySelector('#popup_create');
 
 document.addEventListener('click', (e) =>{
     for(i = 0; 
-        i < btnMoreDetails.length + btnEdit.length + singleBtns.length; 
+        i < btnMoreDetails.length + btnEdit.length; 
         i++)
     {
         switch(e.target){
@@ -24,29 +21,19 @@ document.addEventListener('click', (e) =>{
                 if (popupDetails != null)
                     switchPopup(popupDetails);
                 break;
-            // case btnLogin:
-            //     if (popupLogin != null)
-            //         switchPopup(popupLogin);
-            //     break;
+            case btnLogin:
+                if (popupLogin != null)
+                    switchPopup(popupLogin);
+                break;
             case btnEdit[i]:
                 if (popupEdit != null)
                     switchPopup(popupEdit);
                 break;
-            // case btnAddNew:
-            //     if (popupCreate != null)
-            //         switchPopup(popupCreate);
-            //     console.log(popupCreate.style.display)
-            //     break;
-        }
-        if(e.target == btnLogin){
-            if (popupLogin != null)
-                   switchPopup(popupLogin);
-            console.log(popupCreate.style.display)
-        }
-        else if(e.target == btnAddNew){
-            if (popupCreate != null)
-                switchPopup(popupCreate);
-            console.log(popupCreate.style.display)
+            case btnAddNew:
+                if (popupCreate != null)
+                    switchPopup(popupCreate);
+                console.log(btnAddNew);
+                break;
         }
     }
 })
