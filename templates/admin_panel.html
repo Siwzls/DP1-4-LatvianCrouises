@@ -101,7 +101,7 @@
                     <div class="popup__info--content">
                         <h4>Info:</h4>
                         <div class="popup_info--content--inner">
-                            <form>
+                            <form method="POST">
                                 <div class="popup__info--form--inputs">
                                     <h4>Type:</h4>
                                     <select name="selectType" id="selectType">
@@ -112,15 +112,30 @@
                                     </select>
                                 </div>
                                 <div class="popup__info--form--inputs">
-                                    <h4 class="departDate">Department date:</h4>
-                                    <input type="text" name="departDate" id="departDate" class="departDate">
-                                </div>
-                                <div class="popup__info--form--inputs">
-                                    <h4 class="ship">Ship:</h4>
-                                    <select name="ship" id="ship" class="ship">
+                                    <h4 id="shipTitle" class="ship">Ship:</h4>
+                                    <input type="text" name="shipText" id="shipText" class="ship">
+                                    <select name="shipSelect" id="shipSelect" class="ship">
                                         <option disabled selected value>Select ship</option>
                                         <option value="Port">TestShip</option>
                                     </select>
+                                </div>
+                                <div class="popup__info--form--inputs">
+                                    <h4 class="fromTo">From:</h4>
+                                    <select name="from" id="from" class="fromTo">
+                                        <option disabled selected value>Select port</option>
+                                        <option value="TestPort">TestPort</option>
+                                    </select>
+                                </div>
+                                <div class="popup__info--form--inputs">
+                                    <h4 class="fromTo">To:</h4>
+                                    <select name="to" id="to" class="fromTo">
+                                        <option disabled selected value>Select port</option>
+                                        <option value="TestPort">TestPort</option>
+                                    </select>
+                                </div>
+                                <div class="popup__info--form--inputs">
+                                    <h4 class="departDate">Department date:</h4>
+                                    <input type="text" name="departDate" id="departDate" class="departDate">
                                 </div>
                                 <div class="popup__info--form--inputs">
                                     <h4 class="price">Price:</h4>

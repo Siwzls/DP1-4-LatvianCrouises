@@ -216,7 +216,7 @@ General parameters END
 #popup_create .popup_info--content--inner form{
     width: 90%;
 }
-.departDate, .ship, .price{
+.departDate, .ship, .price, .fromTo{
     display: none;
 }
 #popup_create .popup__info--parameters{

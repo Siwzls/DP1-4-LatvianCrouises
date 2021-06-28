@@ -16,7 +16,7 @@ const popupCreate = document.querySelector('#popup_create');
 
 document.addEventListener('click', (e) =>{
     for(i = 0; 
-        i < btnMoreDetails.length + btnEdit.length; 
+        i < btnMoreDetails.length + btnEdit.length + singleBtns.length; 
         i++)
     {
         switch(e.target){
@@ -24,18 +24,29 @@ document.addEventListener('click', (e) =>{
                 if (popupDetails != null)
                     switchPopup(popupDetails);
                 break;
-            case btnLogin:
-                if (popupLogin != null)
-                    switchPopup(popupLogin);
-                break;
+            // case btnLogin:
+            //     if (popupLogin != null)
+            //         switchPopup(popupLogin);
+            //     break;
             case btnEdit[i]:
                 if (popupEdit != null)
                     switchPopup(popupEdit);
                 break;
-            case btnAddNew:
-                if (popupCreate != null)
-                    switchPopup(popupCreate);
-                break;
+            // case btnAddNew:
+            //     if (popupCreate != null)
+            //         switchPopup(popupCreate);
+            //     console.log(popupCreate.style.display)
+            //     break;
+        }
+        if(e.target == btnLogin){
+            if (popupLogin != null)
+                   switchPopup(popupLogin);
+            console.log(popupCreate.style.display)
+        }
+        else if(e.target == btnAddNew){
+            if (popupCreate != null)
+                switchPopup(popupCreate);
+            console.log(popupCreate.style.display)
         }
     }
 })
@@ -81,28 +92,51 @@ document.addEventListener('click', (e) =>{
 const selectType = document.getElementById("selectType");
 selectType.onchange = function () {
     const departDate = document.getElementsByClassName("departDate");
-    const ship = document.getElementsByClassName("ship");
+    const shipSelect = document.getElementById("shipSelect");
+    const shipText = document.getElementById("shipText");
+    const shipTitle = document.getElementById("shipTitle");
     const price = document.getElementsByClassName("price");
+    const fromTo = document.getElementsByClassName("fromTo");
+
+    console.log(fromTo.length);
 
     let index = selectType.selectedIndex;
     let option = selectType[index].value;
 
-    for(i in price && ship && departDate){
+    for(i in price && fromTo && departDate){
         switch(option){
             case "Port":
                 price[i].style.display = "block";
-                ship[i].style.display = "none";
+                shipTitle.style.display = "none";
+                shipText.style.display = "none";
+                shipSelect.style.display = "none";
                 departDate[i].style.display = "none";
+                fromTo[0].style.display = "none"; 
+                fromTo[1].style.display = "none"; 
+                fromTo[2].style.display = "none"; 
+                fromTo[3].style.display = "none"; 
                 break;
             case "Ship":
-                ship[i].style.display = "block";
+                shipText.style.display = "block";
+                shipTitle.style.display = "block";
+                shipSelect.style.display = "none";
                 price[i].style.display = "none";
                 departDate[i].style.display = "none";
+                fromTo[0].style.display = "none"; 
+                fromTo[1].style.display = "none"; 
+                fromTo[2].style.display = "none"; 
+                fromTo[3].style.display = "none"; 
                 break;
             case "Cruise":
                 price[i].style.display = "block";
-                ship[i].style.display = "block";
+                shipSelect.style.display = "block";
+                shipTitle.style.display = "block";
                 departDate[i].style.display = "block";
+                fromTo[0].style.display = "block"; 
+                fromTo[1].style.display = "block"; 
+                fromTo[2].style.display = "block"; 
+                fromTo[3].style.display = "block"; 
+                shipText.style.display = "none";
         }
     }
 }

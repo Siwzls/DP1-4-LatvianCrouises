@@ -9,8 +9,6 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///main.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
-
-
 class Cruises(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     departDate = db.Column(db.Integer, unique=False, nullable=False)
@@ -23,7 +21,6 @@ class Ships(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     ship = db.Column(db.String(50), unique=True, nullable=False)
     passengerCapacity = db.Column(db.Integer, unique=False, nullable=False)
-    price = db.Column(db.Integer, unique=False, nullable=False)
 
 class Ports(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -58,13 +55,34 @@ def mainPage():
             return render_template('main_page.html')
 
 
-@app.route('/admin_panel')
+@app.route('/admin_panel', methods=['POST', 'GET'])
 def adminPanel():
-    if Cruises.query.first() != None:
-        offers = Cruises.query.all()
-        return render_template('admin_panel.html', offers=offers)
+    if request.method == "POST":
+        if request.form['selectType'] == "Port":
+            return render_template('admin_panel.html')
+        elif request.form['selectType'] == "Ship":
+            ship = request.form['shipText']
+            return render_template('admin_panel.html')
+        elif request.form['selectType'] == "Cruise":
+            ship = request.form['shipSelect']
+            fromPort = request.form['from']
+            toPort = request.form['to']
+            departDate = request.form['departDate']
+            price = request.form['price']
+
+            cruise = Cruises(ship=ship, departDate=departDate, floatsFrom=fromPort, floatsTo=toPort, price=price)
+            try:
+                db.session.add(cruise)
+                db.session.commit()
+                return redirect('/admin_panel')
+            except:
+                return "ошибка"
     else:
-        return render_template('admin_panel.html')        
+        if Cruises.query.first() != None:
+            offers = Cruises.query.all()
+            return render_template('admin_panel.html', offers=offers)
+        else:
+            return render_template('admin_panel.html')        
     
 
 
