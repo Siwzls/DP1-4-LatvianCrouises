@@ -64,7 +64,7 @@ def adminPanel():
             ship = request.form['shipText']
             return render_template('admin_panel.html')
         elif request.form['selectType'] == "Cruise":
-            ship = request.form['shipSelect'].text
+            ship = request.form['shipSelect']
             fromPort = request.form['from']
             toPort = request.form['to']
             departDate = request.form['departDate']
