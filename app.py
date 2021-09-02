@@ -1,3 +1,4 @@
+#Develop branch
 from enum import unique
 from os import name
 from flask import Flask, render_template, request, redirect, url_for
@@ -62,7 +63,15 @@ def adminPanel():
             return render_template('admin_panel.html')
         elif request.form['selectType'] == "Ship":
             ship = request.form['shipText']
-            return render_template('admin_panel.html')
+            passengerpCap = request.form['']
+
+            ships = Ships(ship=ship, passengerpCap=passengerpCap)
+            try:
+                db.session.add(Ships)
+                db.session.commit()
+                return redirect('/admin_panel')
+            except:
+                return "ошибка"
         elif request.form['selectType'] == "Cruise":
             ship = request.form['shipSelect']
             fromPort = request.form['from']

@@ -223,31 +223,25 @@ General parameters END
     width: 50%;
 }
 #popup_create 
-.popup__info--form--inputs input[type=text], 
+.popup__info__form__inputs input[type=text], 
 #popup_create select{
     margin-top: 30px;
 }
-
-.popup__info--form{
-    position: absolute;
-
-    width: 100%;
-
-    bottom: 10%;
-    left: 0;
+.popup__info__form{
+    margin: 50px;
 }
-.popup__info--form--inputs{
+.popup__info__form__inputs{
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
 
 }
-.popup__info--form--buttons{
+.popup__info__form__buttons{
     display: flex;
     justify-content: space-around;
     align-items: flex-end;
 }
-.popup__info--form--buttons input[type=submit]{
+.popup__info__form__buttons input[type=submit]{
     width: 250px;
     height: 90px;
 
@@ -262,13 +256,13 @@ General parameters END
 
     cursor: pointer;
 }
-.popup__info--form--buttons input[type=submit]:hover{
+.popup__info__form__buttons input[type=submit]:hover{
     background-color: #30B700;
     color: white;
 
     transition: ease 0.2s;
 }
-.popup__info--form--buttons h2{
+.popup__info__form__buttons h2{
     width: 250px;
     max-height: 90px;
 
