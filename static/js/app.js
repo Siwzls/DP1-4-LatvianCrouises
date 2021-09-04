@@ -73,52 +73,42 @@ document.addEventListener('click', (e) =>{
 })
 const selectType = document.getElementById("selectType");
 selectType.onchange = function () {
-    const departDate = document.getElementsByClassName("departDate");
-    const shipSelect = document.getElementById("shipSelect");
-    const shipText = document.getElementById("shipText");
-    const shipTitle = document.getElementById("shipTitle");
-    const price = document.getElementsByClassName("price");
-    const fromTo = document.getElementsByClassName("fromTo");
+    const departDate = document.getElementById("departText");
+    const shipSelect = document.getElementById("shipOption");
+    const shipText = document.getElementById("shipInput");
+    const price = document.getElementById("priceText");
+    const from = document.getElementById("fromOption");
+    const to = document.getElementById("toOption");
 
     let index = selectType.selectedIndex;
     let option = selectType[index].value;
-
-    for(i in price && fromTo && departDate){
         switch(option){
             case "Port":
-                price[i].style.display = "block";
-                shipTitle.style.display = "none";
+                price.style.display = "flex";
                 shipText.style.display = "none";
                 shipSelect.style.display = "none";
-                departDate[i].style.display = "none";
-                fromTo[0].style.display = "none"; 
-                fromTo[1].style.display = "none"; 
-                fromTo[2].style.display = "none"; 
-                fromTo[3].style.display = "none"; 
+                departDate.style.display = "none";
+                from.style.display = "none";
+                to.style.display = "none";
+                console.log("test")
                 break;
             case "Ship":
-                shipText.style.display = "block";
-                shipTitle.style.display = "block";
+                shipText.style.display = "flex";
                 shipSelect.style.display = "none";
-                price[i].style.display = "none";
-                departDate[i].style.display = "none";
-                fromTo[0].style.display = "none"; 
-                fromTo[1].style.display = "none"; 
-                fromTo[2].style.display = "none"; 
-                fromTo[3].style.display = "none"; 
+                departDate.style.display = "none";
+                from.style.display = "none";
+                to.style.display = "none";
+                price.style.display = "none";
                 break;
             case "Cruise":
-                price[i].style.display = "block";
-                shipSelect.style.display = "block";
-                shipTitle.style.display = "block";
-                departDate[i].style.display = "block";
-                fromTo[0].style.display = "block"; 
-                fromTo[1].style.display = "block"; 
-                fromTo[2].style.display = "block"; 
-                fromTo[3].style.display = "block"; 
+                price.style.display = "flex";
+                shipSelect.style.display = "flex";
+                departDate.style.display = "flex";
+                from.style.display = "flex";
+                to.style.display = "flex";
                 shipText.style.display = "none";
+                break;
         }
-    }
 }
 function switchPopup(popupToClose){
     if(popupToClose.style.display == "flex"){
