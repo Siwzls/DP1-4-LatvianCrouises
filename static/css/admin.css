@@ -73,6 +73,9 @@ header a:hover{
     margin: 50px 0;
 }
 /* InfoBlocks */
+.infoBlocks{
+    min-height: 55vh;
+}
 .btn_edit{
     width: 220px;
 

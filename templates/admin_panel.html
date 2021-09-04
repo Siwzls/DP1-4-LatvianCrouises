@@ -12,9 +12,6 @@
         <title>Admin panel</title>
     </head>
     <body>
-        <!-- 
-        Header
-         -->
         <header>
             <div class="content">
                 <h1 class="header__title content">Latvian<span>Cruises</span></h1>
@@ -23,9 +20,6 @@
             <h2 class="content">Statistic</h2>
             <a href="/" class="header__inner content">Exit from admin pannel</a>
         </header>
-        <!-- 
-        Header end 
-        -->
         <div class="typeOfInfo content">
             <h2 id="btn_ports">Ports</h2>
             <h2 id="btn_ships">Ships</h2>
@@ -45,15 +39,15 @@
                     <h2 class="btn_edit">Edit</h2>
                 </div>
                 {% endfor %}
+                {% for ship in ships %}
+                <div class="crouise_offer">
+                    <h1 class="crouise_title">Ship#N</h1>
+                    <img src="" alt="">
+                    <h2 class="btn_edit">Edit</h2>
+                </div>
+                {% endfor %}
             </div>
         </div>
-    </div>
-    <div class="pages">
-        <img src="../static/images/arrow-l.png" alt="">
-        <h3>1</h3>
-        <h3>2</h3>
-        <h3>3</h3>
-        <img src="../static/images/arrow-r.png" alt="">
     </div>
     <!-- Popups -->
     <!-- Edit -->
@@ -113,15 +107,19 @@
                                     </select>
                                 </div>
                                 <div class="popup__info__form__inputs" id="shipOption">
-                                    <h4 id="shipTitle">Ship:</h4>
+                                    <h4>Ship:</h4>
                                     <select name="shipSelect" id="shipSelect">
                                         <option disabled selected value>Select ship</option>
                                         <option value="Ship">TestShip</option>
                                     </select>
                                 </div>
                                 <div class="popup__info__form__inputs" id="shipInput">
-                                    <h4 id="shipTitle">Ship name:</h4>
+                                    <h4>Ship name:</h4>
                                     <input type="text" name="shipText" id="shipText">
+                                </div>
+                                <div class="popup__info__form__inputs" id="shipCap">
+                                    <h4>Ship capacity:</h4>
+                                    <input type="text" name="shipCapacity" id="shipCapacity">
                                 </div>
                                 <div class="popup__info__form__inputs" id="fromOption">
                                     <h4>From:</h4>
@@ -138,8 +136,8 @@
                                     </select>
                                 </div>
                                 <div class="popup__info__form__inputs" id="departText">
-                                    <h4 class="departDate">Department date:</h4>
-                                    <input type="text" name="departDate" id="departDate" class="departDate">
+                                    <h4>Department date:</h4>
+                                    <input type="date" name="departDate" id="departDate" min="2021-01-01">
                                 </div>
                                 <div class="popup__info__form__inputs" id="priceText">
                                     <h4>Price:</h4>

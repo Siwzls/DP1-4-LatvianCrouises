@@ -60,14 +60,14 @@ def mainPage():
 def adminPanel():
     if request.method == "POST":
         if request.form['selectType'] == "Port":
-            return render_template('admin_panel.html')
+            return redirect('/admin_panel')
         elif request.form['selectType'] == "Ship":
             ship = request.form['shipText']
-            passengerpCap = request.form['']
+            passengerCapacity = request.form['shipCapacity']
 
-            ships = Ships(ship=ship, passengerpCap=passengerpCap)
+            ships = Ships(ship=ship, passengerCapacity=passengerCapacity)
             try:
-                db.session.add(Ships)
+                db.session.add(ships)
                 db.session.commit()
                 return redirect('/admin_panel')
             except:
@@ -89,7 +89,8 @@ def adminPanel():
     else:
         if Cruises.query.first() != None:
             offers = Cruises.query.all()
-            return render_template('admin_panel.html', offers=offers)
+            ships = Ships.query.all()
+            return render_template('admin_panel.html', offers=offers, ships=ships)
         else:
             return render_template('admin_panel.html')        
     

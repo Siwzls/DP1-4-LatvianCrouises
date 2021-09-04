@@ -76,6 +76,7 @@ selectType.onchange = function () {
     const departDate = document.getElementById("departText");
     const shipSelect = document.getElementById("shipOption");
     const shipText = document.getElementById("shipInput");
+    const shipCapacity = document.getElementById("shipCap");
     const price = document.getElementById("priceText");
     const from = document.getElementById("fromOption");
     const to = document.getElementById("toOption");
@@ -86,6 +87,7 @@ selectType.onchange = function () {
             case "Port":
                 price.style.display = "flex";
                 shipText.style.display = "none";
+                shipCapacity.style.display = "none";
                 shipSelect.style.display = "none";
                 departDate.style.display = "none";
                 from.style.display = "none";
@@ -94,6 +96,7 @@ selectType.onchange = function () {
                 break;
             case "Ship":
                 shipText.style.display = "flex";
+                shipCapacity.style.display = "flex";
                 shipSelect.style.display = "none";
                 departDate.style.display = "none";
                 from.style.display = "none";
@@ -107,6 +110,7 @@ selectType.onchange = function () {
                 from.style.display = "flex";
                 to.style.display = "flex";
                 shipText.style.display = "none";
+                shipCapacity.style.display = "none";
                 break;
         }
 }
