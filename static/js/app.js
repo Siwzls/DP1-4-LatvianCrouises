@@ -73,6 +73,7 @@ document.addEventListener('click', (e) =>{
 })
 const selectType = document.getElementById("selectType");
 selectType.onchange = function () {
+    const portName = document.getElementById("portNameText");
     const departDate = document.getElementById("departText");
     const shipSelect = document.getElementById("shipOption");
     const shipText = document.getElementById("shipInput");
@@ -85,18 +86,19 @@ selectType.onchange = function () {
     let option = selectType[index].value;
         switch(option){
             case "Port":
-                price.style.display = "flex";
+                portName.style.display = "flex";
+                price.style.display = "none";
                 shipText.style.display = "none";
                 shipCapacity.style.display = "none";
                 shipSelect.style.display = "none";
                 departDate.style.display = "none";
                 from.style.display = "none";
                 to.style.display = "none";
-                console.log("test")
                 break;
             case "Ship":
                 shipText.style.display = "flex";
                 shipCapacity.style.display = "flex";
+                portName.style.display = "none";
                 shipSelect.style.display = "none";
                 departDate.style.display = "none";
                 from.style.display = "none";
@@ -109,6 +111,7 @@ selectType.onchange = function () {
                 departDate.style.display = "flex";
                 from.style.display = "flex";
                 to.style.display = "flex";
+                portName.style.display = "none";
                 shipText.style.display = "none";
                 shipCapacity.style.display = "none";
                 break;

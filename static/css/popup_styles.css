@@ -217,7 +217,7 @@ General parameters END
     width: 90%;
 }
 #departText, #shipOption, #shipInput, #shipCap, #priceText, 
-#fromOption, #toOption{
+#fromOption, #toOption, #portNameText{
     display: none;
 }
 #popup_create .popup__info--parameters{

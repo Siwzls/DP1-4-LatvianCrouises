@@ -1,4 +1,3 @@
-#Develop branch
 from enum import unique
 from os import name
 from flask import Flask, render_template, request, redirect, url_for
@@ -26,8 +25,6 @@ class Ships(db.Model):
 class Ports(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(50), unique=True, nullable=False)
-    country = db.Column(db.String(50), unique=False, nullable=False)
-    shipsCapacity = db.Column(db.Integer, unique=False, nullable=False)
 
 class Users(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -60,7 +57,15 @@ def mainPage():
 def adminPanel():
     if request.method == "POST":
         if request.form['selectType'] == "Port":
-            return redirect('/admin_panel')
+            portName = request.form['portName']
+
+            port = Ports(name=portName)
+            try:
+                db.session.add(port)
+                db.session.commit()
+                return redirect('/admin_panel')
+            except:
+                return "ошибка"
         elif request.form['selectType'] == "Ship":
             ship = request.form['shipText']
             passengerCapacity = request.form['shipCapacity']
