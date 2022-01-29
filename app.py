@@ -25,8 +25,6 @@ class Ships(db.Model):
 class Ports(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(50), unique=True, nullable=False)
-    country = db.Column(db.String(50), unique=False, nullable=False)
-    shipsCapacity = db.Column(db.Integer, unique=False, nullable=False)
 
 class Users(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -59,10 +57,26 @@ def mainPage():
 def adminPanel():
     if request.method == "POST":
         if request.form['selectType'] == "Port":
-            return render_template('admin_panel.html')
+            portName = request.form['portName']
+
+            port = Ports(name=portName)
+            try:
+                db.session.add(port)
+                db.session.commit()
+                return redirect('/admin_panel')
+            except:
+                return "ошибка"
         elif request.form['selectType'] == "Ship":
             ship = request.form['shipText']
-            return render_template('admin_panel.html')
+            passengerCapacity = request.form['shipCapacity']
+
+            ships = Ships(ship=ship, passengerCapacity=passengerCapacity)
+            try:
+                db.session.add(ships)
+                db.session.commit()
+                return redirect('/admin_panel')
+            except:
+                return "ошибка"
         elif request.form['selectType'] == "Cruise":
             ship = request.form['shipSelect']
             fromPort = request.form['from']
@@ -80,7 +94,8 @@ def adminPanel():
     else:
         if Cruises.query.first() != None:
             offers = Cruises.query.all()
-            return render_template('admin_panel.html', offers=offers)
+            ships = Ships.query.all()
+            return render_template('admin_panel.html', offers=offers, ships=ships)
         else:
             return render_template('admin_panel.html')        
     
