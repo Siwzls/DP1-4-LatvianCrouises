@@ -44,6 +44,12 @@ document.addEventListener('click', (e) =>{
     const btnCruises = document.querySelector('#btn_crouises');
     const btnPorts = document.querySelector('#btn_ports');
 
+    const cruiseOffers = document.getElementsByClassName("infoBlocks__offers--cruise");
+    const shipOffers = document.getElementsByClassName("infoBlocks__offers--ship");
+    const portsOffers = document.getElementsByClassName("infoBlocks__offers--port");
+
+    //let indexLength = cruiseOffers.length + shipOffers.length + portsOffers.length;
+
     switch(e.target.id){
         case 'btn_ports':
             e.target.style.backgroundColor = "#FF8A00";
@@ -52,6 +58,11 @@ document.addEventListener('click', (e) =>{
             btnShips.style.color = "#000000";
             btnCruises.style.backgroundColor = "#fff";
             btnCruises.style.color = "#000000";
+
+
+            for(el of cruiseOffers) el.style.display = "none";
+            for(el of shipOffers) el.style.display = "none";
+            for(el of portsOffers) el.style.display = "block";
             break;
         case 'btn_ships':
             e.target.style.backgroundColor = "#FF8A00";
@@ -60,6 +71,10 @@ document.addEventListener('click', (e) =>{
             btnPorts.style.color = "#000000";
             btnCruises.style.backgroundColor = "#fff";
             btnCruises.style.color = "#000000";
+
+            for(el of cruiseOffers) el.style.display = "none";
+            for(el of shipOffers) el.style.display = "block";
+            for(el of portsOffers) el.style.display = "none";
             break;
         case 'btn_crouises':
             e.target.style.backgroundColor = "#FF8A00";
@@ -68,6 +83,10 @@ document.addEventListener('click', (e) =>{
             btnPorts.style.color = "#000000";
             btnShips.style.backgroundColor = "#fff";
             btnShips.style.color = "#000000";
+
+            for(el of cruiseOffers) el.style.display = "block";
+            for(el of shipOffers) el.style.display = "none";
+            for(el of portsOffers) el.style.display = "none";
             break;
     }
 })
