@@ -36,6 +36,7 @@ class Users(db.Model):
 
 
 @app.route('/', methods=['POST', 'GET'])
+@app.route('/main_page_ru.html', methods=['POST', 'GET'])
 def mainPage():
     admin = Users.query.first()
     if request.method == "POST":
