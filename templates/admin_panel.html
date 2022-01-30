@@ -119,7 +119,7 @@
                                     <select name="shipSelect" id="shipSelect">
                                         <option disabled selected value>Select ship</option>
                                         {% for ship in ships %}
-                                        <option value="Ship">
+                                        <option value="{{ ship.ship }}">
                                             {{ ship.ship }}
                                         </option>
                                         {% endfor %}
