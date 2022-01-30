@@ -5,8 +5,8 @@ Grupa:
 DP1-4
 
 Autori:
-Rihards Fabriks
-Antons Turkins
+Rihards Fabriks,
+Antons Turkins,
 Eriks Zhukovs
 
 

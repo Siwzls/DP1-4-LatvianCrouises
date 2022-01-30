@@ -18,7 +18,7 @@
             <div class="header_languages">
                 <a href="#">EN</a>
                 <a href="#">LV</a>
-                <a href="../templates/main_page_ru.html">RU</a>
+                <a href="../main_page_ru.html">RU</a>
             </div>
         </header>
         <!-- Header end -->
@@ -59,21 +59,14 @@
                     </div>
                 </div>
                  <!-- Filter end -->       
-                <div class="crouise_offers">
+                <div class="infoBlocks__offers">
                     {% for offer in offers %}
-                    <div class="crouise_offer">
+                    <div class="infoBlocks__offers__offer">
                         <h1 class="crouise_title">{{ offer.ship }}</h1>
                         <img src="" alt="">
                         <h2 class="btn_details btn_open">More Details</h2>
                     </div>
                     {% endfor %}
-                <!-- <div class="pages">
-                    <img src="../static/images/arrow-l.png" alt="">
-                    <h3>1</h3>
-                    <h3>2</h3>
-                    <h3>3</h3>
-                    <img src="../static/images/arrow-r.png" alt="">
-                </div> -->
             </div>
         </div>
         <!-- Popups -->
