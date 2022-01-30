@@ -18,16 +18,16 @@ document.addEventListener('click', (e) =>{
     {
         switch(e.target){
             case btnMoreDetails[i]:
-                switchPopup(popupDetails);
+                switchPopup(popupDetails, e.target.className);
                 break;
             case btnLogin:
-                switchPopup(popupLogin);
+                switchPopup(popupLogin, e.target.className);
                 break;
             case btnEdit[i]:
-                switchPopup(popupEdit);
+                switchPopup(popupEdit, e.target.className);
                 break;
             case btnAddNew:
-                switchPopup(popupCreate);
+                switchPopup(popupCreate, e.target.className);
                 break;
         }
     }
@@ -36,7 +36,7 @@ document.addEventListener('click', (e) =>{
 for(i = 0; i < btnPopupClose.length; i++){
 btnPopupClose[i].addEventListener('click', (e) =>{
     var popupId = e.target.parentNode.parentNode;
-    switchPopup(popupId);
+    switchPopup(popupId, e.target.className);
 });
 }
 document.addEventListener('click', (e) =>{
@@ -117,12 +117,9 @@ selectType.onchange = function () {
                 break;
         }
 }
-function switchPopup(popupToClose){
-    if(popupToClose.style.display == "flex"){
-        popupToClose.style.display = "none";
-    }
-    else{
-        popupToClose.style.display = "flex";
-    }
+function switchPopup(popupToClose, btnClass){
+    let index = btnClass.indexOf("btn_open");
+    if(popupToClose.style.display == "flex" && index == -1) popupToClose.style.display = "none";
+    else popupToClose.style.display = "flex";
     console.log(popupToClose.style.display);
 }
