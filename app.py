@@ -95,7 +95,8 @@ def adminPanel():
         if Cruises.query.first() != None:
             offers = Cruises.query.all()
             ships = Ships.query.all()
-            return render_template('admin_panel.html', offers=offers, ships=ships)
+            ports = Ports.query.all()
+            return render_template('admin_panel.html', offers=offers, ships=ships, ports=ports)
         else:
             return render_template('admin_panel.html')        
     

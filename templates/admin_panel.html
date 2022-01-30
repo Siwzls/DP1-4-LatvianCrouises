@@ -24,7 +24,7 @@
             <h2 id="btn_ports">Ports</h2>
             <h2 id="btn_ships">Ships</h2>
             <h2 id="btn_crouises">Cruises</h2>
-            <h2 id="btn_addNew">Add new</h2>
+            <h2 id="btn_addNew" class="btn_open">Add new</h2>
         </div>
         <div class="search content">
             <h1>Search</h1>
@@ -36,14 +36,14 @@
                 <div class="crouise_offer">
                     <h1 class="crouise_title">TestName#N</h1>
                     <img src="" alt="">
-                    <h2 class="btn_edit">Edit</h2>
+                    <h2 class="btn_edit btn_open">Edit</h2>
                 </div>
                 {% endfor %}
                 {% for ship in ships %}
                 <div class="crouise_offer">
                     <h1 class="crouise_title">Ship#N</h1>
                     <img src="" alt="">
-                    <h2 class="btn_edit">Edit</h2>
+                    <h2 class="btn_edit btn_open">Edit</h2>
                 </div>
                 {% endfor %}
             </div>
@@ -111,7 +111,11 @@
                                     <h4>Ship:</h4>
                                     <select name="shipSelect" id="shipSelect">
                                         <option disabled selected value>Select ship</option>
-                                        <option value="Ship">TestShip</option>
+                                        {% for ship in ships %}
+                                        <option value="Ship">
+                                            {{ ship.ship }}
+                                        </option>
+                                        {% endfor %}
                                     </select>
                                 </div>
                                 <!--Ship name-->
@@ -129,7 +133,9 @@
                                     <h4>From:</h4>
                                     <select name="from" id="from">
                                         <option disabled selected value>Select port</option>
-                                        <option value="TestPort">TestPort</option>
+                                        {% for port in ports %}
+                                        <option value="TestPort">{{ port.name }}</option>
+                                        {% endfor %}
                                     </select>
                                 </div>
                                 <!--To-->
@@ -137,7 +143,9 @@
                                     <h4>To:</h4>
                                     <select name="to" id="to">
                                         <option disabled selected value>Select port</option>
-                                        <option value="TestPort">TestPort</option>
+                                        {% for port in ports %}
+                                        <option value="TestPort">{{ port.name }}</option>
+                                        {% endfor %}
                                     </select>
                                 </div>
                                 <!--Department date-->
