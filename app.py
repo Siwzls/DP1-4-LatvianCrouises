@@ -1,4 +1,5 @@
 from enum import unique
+from os import name
 from flask import Flask, render_template, request, redirect, url_for
 from flask.sessions import NullSession
 from flask_sqlalchemy import SQLAlchemy
@@ -8,11 +9,22 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///main.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
-class Offers(db.Model):
+class Cruises(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     departDate = db.Column(db.Integer, unique=False, nullable=False)
     ship = db.Column(db.String(50), unique=False, nullable=False)
+    floatsFrom = db.Column(db.String(50), unique=False, nullable=False)
+    floatsTo = db.Column(db.String(50), unique=False, nullable=False)
     price = db.Column(db.Integer, unique=False, nullable=False)
+
+class Ships(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    ship = db.Column(db.String(50), unique=True, nullable=False)
+    passengerCapacity = db.Column(db.Integer, unique=False, nullable=False)
+
+class Ports(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(50), unique=True, nullable=False)
 
 class Users(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -30,28 +42,65 @@ def mainPage():
         user = request.form['user']
         password = request.form['password']
         if admin.username == user and admin.password == password:
-            print("succseful")
-            return redirect('admin_panel.html')
+            return redirect('/admin_panel')
         else:
-            return "Ошибка"
+            return redirect('/')
     else:
-        if Offers.query.first() != None:
-            offers = Offers.query.all()
+        if Cruises.query.first() != None:
+            offers = Cruises.query.all()
             return render_template('main_page.html', offers=offers)
         else:
             return render_template('main_page.html')
 
 
-@app.route('/admin_panel.html')
+@app.route('/admin_panel', methods=['POST', 'GET'])
 def adminPanel():
-    if Offers.query.first() != None:
-        offers = Offers.query.all()
-        return render_template('admin_panel.html', offers=offers)
+    if request.method == "POST":
+        if request.form['selectType'] == "Port":
+            portName = request.form['portName']
+
+            port = Ports(name=portName)
+            try:
+                db.session.add(port)
+                db.session.commit()
+                return redirect('/admin_panel')
+            except:
+                return "ошибка"
+        elif request.form['selectType'] == "Ship":
+            ship = request.form['shipText']
+            passengerCapacity = request.form['shipCapacity']
+
+            ships = Ships(ship=ship, passengerCapacity=passengerCapacity)
+            try:
+                db.session.add(ships)
+                db.session.commit()
+                return redirect('/admin_panel')
+            except:
+                return "ошибка"
+        elif request.form['selectType'] == "Cruise":
+            ship = request.form['shipSelect']
+            fromPort = request.form['from']
+            toPort = request.form['to']
+            departDate = request.form['departDate']
+            price = request.form['price']
+
+            cruise = Cruises(ship=ship, departDate=departDate, floatsFrom=fromPort, floatsTo=toPort, price=price)
+            try:
+                db.session.add(cruise)
+                db.session.commit()
+                return redirect('/admin_panel')
+            except:
+                return "ошибка"
     else:
-        return render_template('admin_panel.html')        
+        if Cruises.query.first() != None:
+            offers = Cruises.query.all()
+            ships = Ships.query.all()
+            ports = Ports.query.all()
+            return render_template('admin_panel.html', offers=offers, ships=ships, ports=ports)
+        else:
+            return render_template('admin_panel.html')        
     
 
 
 if __name__ == "__main__":
     app.run(debug=True, use_reloader=False, host='0.0.0.0')
-print("Flask is working!")

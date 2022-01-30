@@ -4,7 +4,6 @@ const btnEdit = document.querySelectorAll('.btn_edit');
 const btnLogin = document.querySelector('#login');
 const btnPopupClose = document.querySelectorAll('.btn_popupClose');
 const btnAddNew = document.querySelector('#btn_addNew');
-const btnDelete = document.querySelectorAll('.btn_popupDelete');
 
 //Popups
 const popupDetails = document.querySelector('#popup_details');
@@ -12,26 +11,23 @@ const popupLogin = document.querySelector('#popup_login');
 const popupEdit = document.querySelector('#popup_edit');
 const popupCreate = document.querySelector('#popup_create');
 
-
-const singleBtns = [btnLogin, btnAddNew];
-
 document.addEventListener('click', (e) =>{
     for(i = 0; 
-        i < btnMoreDetails.length + btnEdit.length + singleBtns.length; 
+        i < btnMoreDetails.length + btnEdit.length; 
         i++)
     {
         switch(e.target){
             case btnMoreDetails[i]:
-                switchPopup(popupDetails);
+                switchPopup(popupDetails, e.target.className);
                 break;
-            case singleBtns[i]:
-                switchPopup(popupLogin);
+            case btnLogin:
+                switchPopup(popupLogin, e.target.className);
                 break;
             case btnEdit[i]:
-                switchPopup(popupEdit);
+                switchPopup(popupEdit, e.target.className);
                 break;
-            case singleBtns[i]:
-                switchPopup(popupCreate);
+            case btnAddNew:
+                switchPopup(popupCreate, e.target.className);
                 break;
         }
     }
@@ -40,50 +36,90 @@ document.addEventListener('click', (e) =>{
 for(i = 0; i < btnPopupClose.length; i++){
 btnPopupClose[i].addEventListener('click', (e) =>{
     var popupId = e.target.parentNode.parentNode;
-    switchPopup(popupId);
-});
-}
-// Delete popup
-for(i = 0; i < btnDelete.length; i++){
-btnDelete[i].addEventListener('click', (e) =>{
-    var popupId = e.target.closest('div[id]');
-    switchPopup(popupId);
+    switchPopup(popupId, e.target.className);
 });
 }
 document.addEventListener('click', (e) =>{
+    const btnShips = document.querySelector('#btn_ships')
+    const btnCruises = document.querySelector('#btn_crouises');
+    const btnPorts = document.querySelector('#btn_ports');
+
     switch(e.target.id){
         case 'btn_ports':
             e.target.style.backgroundColor = "#FF8A00";
             e.target.style.color = "#fff";
-            document.querySelector('#btn_ships').style.backgroundColor = "#fff";
-            document.querySelector('#btn_ships').style.color = "#000000";
-            document.querySelector('#btn_crouises').style.backgroundColor = "#fff";
-            document.querySelector('#btn_crouises').style.color = "#000000";
+            btnShips.style.backgroundColor = "#fff";
+            btnShips.style.color = "#000000";
+            btnCruises.style.backgroundColor = "#fff";
+            btnCruises.style.color = "#000000";
             break;
         case 'btn_ships':
             e.target.style.backgroundColor = "#FF8A00";
             e.target.style.color = "#fff";
-            document.querySelector('#btn_ports').style.backgroundColor = "#fff";
-            document.querySelector('#btn_ports').style.color = "#000000";
-            document.querySelector('#btn_crouises').style.backgroundColor = "#fff";
-            document.querySelector('#btn_crouises').style.color = "#000000";
+            btnPorts.style.backgroundColor = "#fff";
+            btnPorts.style.color = "#000000";
+            btnCruises.style.backgroundColor = "#fff";
+            btnCruises.style.color = "#000000";
             break;
         case 'btn_crouises':
             e.target.style.backgroundColor = "#FF8A00";
             e.target.style.color = "#fff";
-            document.querySelector('#btn_ports').style.backgroundColor = "#fff";
-            document.querySelector('#btn_ports').style.color = "#000000";
-            document.querySelector('#btn_ships').style.backgroundColor = "#fff";
-            document.querySelector('#btn_ships').style.color = "#000000";
+            btnPorts.style.backgroundColor = "#fff";
+            btnPorts.style.color = "#000000";
+            btnShips.style.backgroundColor = "#fff";
+            btnShips.style.color = "#000000";
             break;
     }
 })
-function switchPopup(popupToClose){
-    if(popupToClose.style.display == "flex"){
-        popupToClose.style.display = "none";
-    }
-    else{
-        popupToClose.style.display = "flex";
-    }
+const selectType = document.getElementById("selectType");
+selectType.onchange = function () {
+    const portName = document.getElementById("portNameText");
+    const departDate = document.getElementById("departText");
+    const shipSelect = document.getElementById("shipOption");
+    const shipText = document.getElementById("shipInput");
+    const shipCapacity = document.getElementById("shipCap");
+    const price = document.getElementById("priceText");
+    const from = document.getElementById("fromOption");
+    const to = document.getElementById("toOption");
+
+    let index = selectType.selectedIndex;
+    let option = selectType[index].value;
+        switch(option){
+            case "Port":
+                portName.style.display = "flex";
+                price.style.display = "none";
+                shipText.style.display = "none";
+                shipCapacity.style.display = "none";
+                shipSelect.style.display = "none";
+                departDate.style.display = "none";
+                from.style.display = "none";
+                to.style.display = "none";
+                break;
+            case "Ship":
+                shipText.style.display = "flex";
+                shipCapacity.style.display = "flex";
+                portName.style.display = "none";
+                shipSelect.style.display = "none";
+                departDate.style.display = "none";
+                from.style.display = "none";
+                to.style.display = "none";
+                price.style.display = "none";
+                break;
+            case "Cruise":
+                price.style.display = "flex";
+                shipSelect.style.display = "flex";
+                departDate.style.display = "flex";
+                from.style.display = "flex";
+                to.style.display = "flex";
+                portName.style.display = "none";
+                shipText.style.display = "none";
+                shipCapacity.style.display = "none";
+                break;
+        }
+}
+function switchPopup(popupToClose, btnClass){
+    let index = btnClass.indexOf("btn_open");
+    if(popupToClose.style.display == "flex" && index == -1) popupToClose.style.display = "none";
+    else popupToClose.style.display = "flex";
     console.log(popupToClose.style.display);
 }
