@@ -4,6 +4,7 @@ const btnEdit = document.querySelectorAll('.btn_edit');
 const btnLogin = document.querySelector('#login');
 const btnPopupClose = document.querySelectorAll('.btn_popupClose');
 const btnAddNew = document.querySelector('#btn_addNew');
+const btnDelete = document.querySelector('#btn_delete');
 
 //Popups
 const popupDetails = document.querySelector('#popup_details');
@@ -40,15 +41,13 @@ btnPopupClose[i].addEventListener('click', (e) =>{
 });
 }
 document.addEventListener('click', (e) =>{
-    const btnShips = document.querySelector('#btn_ships')
-    const btnCruises = document.querySelector('#btn_crouises');
-    const btnPorts = document.querySelector('#btn_ports');
+    const btnShips = document.getElementById('btn_ships')
+    const btnCruises = document.getElementById('btn_crouises');
+    const btnPorts = document.getElementById('btn_ports');
 
     const cruiseOffers = document.getElementsByClassName("infoBlocks__offers--cruise");
     const shipOffers = document.getElementsByClassName("infoBlocks__offers--ship");
     const portsOffers = document.getElementsByClassName("infoBlocks__offers--port");
-
-    //let indexLength = cruiseOffers.length + shipOffers.length + portsOffers.length;
 
     switch(e.target.id){
         case 'btn_ports':
@@ -58,7 +57,6 @@ document.addEventListener('click', (e) =>{
             btnShips.style.color = "#000000";
             btnCruises.style.backgroundColor = "#fff";
             btnCruises.style.color = "#000000";
-
 
             for(el of cruiseOffers) el.style.display = "none";
             for(el of shipOffers) el.style.display = "none";
@@ -136,9 +134,20 @@ selectType.onchange = function () {
                 break;
         }
 }
+let type, id;
+btnEdit.forEach(el => el.addEventListener('click', (e) =>{
+    type = e.target.dataset.type;
+    id = e.target.dataset.id;
+}))
+btnDelete.addEventListener('click', (e) =>{
+    changeURL(type, id);
+})
 function switchPopup(popupToClose, btnClass){
     let index = btnClass.indexOf("btn_open");
     if(popupToClose.style.display == "flex" && index == -1) popupToClose.style.display = "none";
     else popupToClose.style.display = "flex";
     console.log(popupToClose.style.display);
+}
+function changeURL(type, id){
+    location.href = location.href + "_" + type + "_" + id;
 }
