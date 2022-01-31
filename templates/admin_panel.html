@@ -32,25 +32,31 @@
         </div>
         <div class="infoBlocks content">
             <div class="infoBlocks__offers">
+                <!--Cruise block-->
                 {% for offer in offers %}
                 <div class="infoBlocks__offers__offer infoBlocks__offers--cruise">
                     <h1 class="crouise_title">Cruise: {{ offer.ship }}</h1>
                     <img src="" alt="">
-                    <h2 class="btn_edit btn_open">Edit</h2>
+                    <h2 class="btn_edit btn_open" 
+                    data-type="cruise" data-id="{{ offer.id }}">Edit</h2>
                 </div>
                 {% endfor %}
+                <!--Ship block-->
                 {% for ship in ships %}
                 <div class="infoBlocks__offers__offer infoBlocks__offers--ship">
                     <h1 class="crouise_title">Ship: {{ ship.ship }}</h1>
                     <img src="" alt="">
-                    <h2 class="btn_edit btn_open">Edit</h2>
+                    <h2 class="btn_edit btn_open" 
+                    data-type="ship" data-id="{{ ship.id }}">Edit</h2>
                 </div>
                 {% endfor %}
+                <!--Port block-->
                 {% for port in ports %}
                 <div class="infoBlocks__offers__offer infoBlocks__offers--port">
                     <h1 class="crouise_title">Port: {{ port.name }}</h1>
                     <img src="" alt="">
-                    <h2 class="btn_edit btn_open">Edit</h2>
+                    <h2 class="btn_edit btn_open" 
+                    data-type="port" data-id="{{ port.id }}">Edit</h2>
                 </div>
                 {% endfor %}
             </div>
@@ -119,7 +125,7 @@
                                     <select name="shipSelect" id="shipSelect">
                                         <option disabled selected value>Select ship</option>
                                         {% for ship in ships %}
-                                        <option value="Ship">
+                                        <option value="{{ ship.ship }}">
                                             {{ ship.ship }}
                                         </option>
                                         {% endfor %}
@@ -177,7 +183,7 @@
                     <div class="popup__info__form">
                         <div class="popup__info__form__buttons">
                             <input type="submit" value="Save" form="data">
-                            <h2 id="btn_delete" class="">Cancel</h2>
+                            <h2 id="btn_delete">Cancel</h2>
                         </div>
                     </div>
                 </div>
