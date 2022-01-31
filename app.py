@@ -55,7 +55,7 @@ def mainPage():
 
 
 @app.route('/admin_panel', methods=['POST', 'GET'])
-def adminPanel():
+def adminPanel(type=None,id=None):
     if request.method == "POST":
         if request.form['selectType'] == "Port":
             portName = request.form['portName']
@@ -99,7 +99,34 @@ def adminPanel():
             ports = Ports.query.all()
             return render_template('admin_panel.html', offers=offers, ships=ships, ports=ports)
         else:
-            return render_template('admin_panel.html')        
+            return render_template('admin_panel.html')
+
+@app.route('/admin_panel_<string:type>_<int:id>', methods=['POST', 'GET'])
+def admin_panel_delete(type, id):
+            if type == "port":
+                port = Ports.query.get_or_404(id)
+                try:
+                    db.session.delete(port)
+                    db.session.commit()
+                    return redirect('/admin_panel')
+                except:
+                    return "error"
+            if type == "ship":
+                ship = Ships.query.get_or_404(id)
+                try:
+                    db.session.delete(ship)
+                    db.session.commit()
+                    return redirect('/admin_panel')
+                except:
+                    return "error"
+            if type == "cruise":
+                cruise = Cruises.query.get_or_404(id)
+                try:
+                    db.session.delete(cruise)
+                    db.session.commit()
+                    return redirect('/admin_panel')
+                except:
+                    return "error"
     
 
 
