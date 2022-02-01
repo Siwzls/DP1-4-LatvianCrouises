@@ -51,7 +51,7 @@ def mainPage(lang="langEn"):
             offers = Cruises.query.all()
             if(lang == "langEn"):
                 print("En")
-                return render_template('main_page_ru.html', offers=offers)
+                return render_template('main_page.html', offers=offers)
             elif(lang == "langLv"):
                 print("Lv")
                 return render_template('main_page_lv.html', offers=offers)

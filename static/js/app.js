@@ -16,10 +16,11 @@ const popupCreate = document.querySelector('#popup_create');
 const langs = [document.getElementById('langEn'), document.getElementById('langRu'), document.getElementById('langLv')];
 
 //Change language
-langs.forEach(el => el.addEventListener('click', (e) =>{
-    changeLang(e.target.id);
-}))
-
+if(langs == null){
+    langs.forEach(el => el.addEventListener('click', (e) =>{
+        changeLang(e.target.id);
+    }))
+}
 //Open popup
 btnMoreDetails.forEach(el => el.addEventListener('click', (e) =>{
     switchPopup(popupDetails, e.target.className);
