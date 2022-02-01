@@ -1,5 +1,5 @@
 Nosaukums:
-LatvianCrouises
+LatvianCruises
 
 Grupa:
 DP1-4
