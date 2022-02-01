@@ -16,7 +16,7 @@ const popupCreate = document.querySelector('#popup_create');
 const langs = [document.getElementById('langEn'), document.getElementById('langRu'), document.getElementById('langLv')];
 
 //Change language
-if(langs == null){
+if(langs[0] != null){
     langs.forEach(el => el.addEventListener('click', (e) =>{
         changeLang(e.target.id);
     }))
