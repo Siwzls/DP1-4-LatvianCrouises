@@ -140,6 +140,8 @@ Cruise offer
     align-items: flex-start;
     flex-wrap: wrap;
 
+    min-height: 500px;
+
     color: white;
 }
 .infoBlocks__offers__offer{

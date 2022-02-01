@@ -32,15 +32,17 @@
                     <div id="filter_from" class="filter__inner">
                         <h2>From</h2>
                         <select>
-                            <option value="Riga">Riga</option>
-                            <option value="Stockholm">Stockholm</option>
+                            {% for offer in offers %}
+                            <option value="{{ offer.floatsFrom }}">{{ offer.floatsFrom }}</option>
+                            {% endfor %}
                         </select>
                     </div>
                     <div id="filter_to" class="filter__inner">
                         <h2>To</h2>
                         <select>
-                            <option value="Riga">Riga</option>
-                            <option value="Stockholm">Stockholm</option>
+                            {% for offer in offers %}
+                            <option value="{{ offer.floatsFrom }}">{{ offer.floatsFrom }}</option>
+                            {% endfor %}
                         </select>
                     </div>
                     <div id="filter_date" class="filter__inner">
