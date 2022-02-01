@@ -55,7 +55,7 @@ def mainPage():
 
 
 @app.route('/admin_panel', methods=['POST', 'GET'])
-def adminPanel(type=None,id=None):
+def adminPanel():
     if request.method == "POST":
         if request.form['selectType'] == "Port":
             portName = request.form['portName']

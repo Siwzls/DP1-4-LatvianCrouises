@@ -12,27 +12,23 @@ const popupLogin = document.querySelector('#popup_login');
 const popupEdit = document.querySelector('#popup_edit');
 const popupCreate = document.querySelector('#popup_create');
 
-document.addEventListener('click', (e) =>{
-    for(i = 0; 
-        i < btnMoreDetails.length + btnEdit.length; 
-        i++)
-    {
-        switch(e.target){
-            case btnMoreDetails[i]:
-                switchPopup(popupDetails, e.target.className);
-                break;
-            case btnLogin:
-                switchPopup(popupLogin, e.target.className);
-                break;
-            case btnEdit[i]:
-                switchPopup(popupEdit, e.target.className);
-                break;
-            case btnAddNew:
-                switchPopup(popupCreate, e.target.className);
-                break;
-        }
-    }
-})
+//Open popup
+btnMoreDetails.forEach(el => el.addEventListener('click', (e) =>{
+    switchPopup(popupDetails, e.target.className);
+}))
+btnEdit.forEach(el => el.addEventListener('click', (e) =>{
+    switchPopup(popupEdit, e.target.className);
+}))
+if(btnLogin != null){
+    btnLogin.addEventListener('click', (e) =>{
+        switchPopup(popupLogin, e.target.className);
+    })
+}
+if(btnAddNew != null){
+    btnAddNew.addEventListener('click', (e) =>{
+        switchPopup(popupCreate, e.target.className);
+    })
+}
 // Hide popup
 for(i = 0; i < btnPopupClose.length; i++){
 btnPopupClose[i].addEventListener('click', (e) =>{
