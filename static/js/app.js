@@ -33,6 +33,16 @@ document.addEventListener('click', (e) =>{
         }
     }
 })
+btnMoreDetails.forEach(el => el.addEventListener('click', (e) =>{
+    switchPopup(popupDetails, e.target.className);
+}))
+btnEdit.forEach(el => el.addEventListener('click', (e) =>{
+    switchPopup(popupDetails, e.target.className);
+}))
+btnLogin.addEventListener('click', (e) =>{
+    alert('test');
+    switchPopup(popupLogin, e.target.className);
+})
 // Hide popup
 for(i = 0; i < btnPopupClose.length; i++){
 btnPopupClose[i].addEventListener('click', (e) =>{
