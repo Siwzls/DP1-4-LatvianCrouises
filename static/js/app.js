@@ -12,6 +12,14 @@ const popupLogin = document.querySelector('#popup_login');
 const popupEdit = document.querySelector('#popup_edit');
 const popupCreate = document.querySelector('#popup_create');
 
+//Languages
+const langs = [document.getElementById('langEn'), document.getElementById('langRu'), document.getElementById('langLv')];
+
+//Change language
+langs.forEach(el => el.addEventListener('click', (e) =>{
+    changeLang(e.target.id);
+}))
+
 //Open popup
 btnMoreDetails.forEach(el => el.addEventListener('click', (e) =>{
     switchPopup(popupDetails, e.target.className);
@@ -145,5 +153,8 @@ function switchPopup(popupToClose, btnClass){
     console.log(popupToClose.style.display);
 }
 function changeURL(type, id){
-    location.href = location.href + "_" + type + "_" + id;
+    location.href += "_" + type + "_" + id;
+}
+function changeLang(lang){
+    location.href = lang;
 }

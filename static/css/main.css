@@ -33,7 +33,7 @@ body{
 ==========*/
 
 header{
-    display: flex;
+    display: inline-flex;
 
     width: 100%;
     min-height: 180px;
@@ -48,19 +48,24 @@ header h5{
     color: red
 }
 .header_languages{
-    display: block;
+    display: flex;
+    align-items: baseline;
 
     margin: 10px;
 }
-.header_languages a{
+.header_languages h3{
     color: white;
 
     margin-right: 20px;
 
     transition: 0.1s linear;
+    
+    cursor: pointer;
 }
-.header_languages a:hover{
-    border-bottom: 3px solid white;
+.header_languages h3:hover{
+    color: rgb(98, 98, 255);
+
+    border-bottom: 3px solid rgb(98, 98, 255);
 }
 
 /* ==========

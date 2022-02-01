@@ -36,8 +36,8 @@ class Users(db.Model):
 
 
 @app.route('/', methods=['POST', 'GET'])
-@app.route('/main_page_ru.html', methods=['POST', 'GET'])
-def mainPage():
+@app.route('/<string:lang>', methods=['POST', 'GET'])
+def mainPage(lang="langEn"):
     admin = Users.query.first()
     if request.method == "POST":
         user = request.form['user']
@@ -49,9 +49,25 @@ def mainPage():
     else:
         if Cruises.query.first() != None:
             offers = Cruises.query.all()
-            return render_template('main_page.html', offers=offers)
+            if(lang == "langEn"):
+                print("En")
+                return render_template('main_page_ru.html', offers=offers)
+            elif(lang == "langLv"):
+                print("Lv")
+                return render_template('main_page_lv.html', offers=offers)
+            else:
+                print("Ru")
+                return render_template('main_page_ru.html', offers=offers)
         else:
-            return render_template('main_page.html')
+            if(lang == "langEn"):
+                print("En")
+                return render_template('main_page.html')
+            elif(lang == "langLv"):
+                print("Lv")
+                return render_template('main_page_lv.html')
+            else:
+                print("Ru")
+                return render_template('main_page_ru.html')
 
 
 @app.route('/admin_panel', methods=['POST', 'GET'])

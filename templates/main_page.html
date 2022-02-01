@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+    {% block head %}
     <head>
         <meta charset="UTF-8">
         <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -10,27 +11,28 @@
         <link rel="stylesheet" href="../static/css/popup_styles.css">
         <title>LatvianCruises</title>
     </head>
+    {% endblock %}
     <body>
         <!-- Header -->
         <header>
             <h1 class="header__title header_inner content">Latvian<span>Cruises</span></h1>
             <h5 id="login" class="header_inner content btn_open">Login as admin</h5>
             <div class="header_languages">
-                <a href="#">EN</a>
-                <a href="#">LV</a>
-                <a href="../main_page_ru.html">RU</a>
+                <h3 id="langEn">EN</h3>
+                <h3 id="langLv">LV</h3>
+                <h3 id="langRu">RU</h3>
             </div>
         </header>
         <!-- Header end -->
         <div class="heading_title">
-            <h1 class="content">The best cruise ships in Latvia!</h1>
+            <h1 class="content">{% block header_title %}The best cruise ships in Latvia!{% endblock %}</h1>
         </div>
         <div class="main_content">
             <div class="content">
                 <!-- Filter -->                
                 <div class="filter">
                     <div id="filter_from" class="filter__inner">
-                        <h2>From</h2>
+                        <h2>{% block filter_from %}From{% endblock %}</h2>
                         <select>
                             {% for offer in offers %}
                             <option value="{{ offer.floatsFrom }}">{{ offer.floatsFrom }}</option>
@@ -38,7 +40,7 @@
                         </select>
                     </div>
                     <div id="filter_to" class="filter__inner">
-                        <h2>To</h2>
+                        <h2>{% block filter_to %}To{% endblock %}</h2>
                         <select>
                             {% for offer in offers %}
                             <option value="{{ offer.floatsFrom }}">{{ offer.floatsFrom }}</option>
@@ -46,16 +48,17 @@
                         </select>
                     </div>
                     <div id="filter_date" class="filter__inner">
-                        <h2>Department date</h2>
+                        <h2>{% block filter_depDate %}Department date{% endblock %}</h2>
                         <input type="text" placeholder="DD.MM.YYYY">
                     </div>
                     <div class="filter__inner--bottom">
                         <div id="filter_checkbox" class="filter__inner">
-                            <h6>Show only booked cruises</h6>
+                            <h6>{% block filter_bookedCruises %}
+                                Show only booked cruises{% endblock %}</h6>
                             <input type="checkbox">
                         </div>
                         <div id="filter_search" class="filter__inner">
-                            <h2>Search</h2>
+                            <h2>{% block filter_search %}Search{% endblock %}</h2>
                             <input type="text">
                         </div>
                     </div>
