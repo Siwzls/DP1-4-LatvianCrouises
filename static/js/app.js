@@ -149,9 +149,20 @@ btnDelete.addEventListener('click', (e) =>{
 })
 function switchPopup(popupToClose, btnClass){
     let index = btnClass.indexOf("btn_open");
-    if(popupToClose.style.display == "flex" && index == -1) popupToClose.style.display = "none";
-    else popupToClose.style.display = "flex";
-    console.log(popupToClose.style.display);
+    popupToClose.style.opacity = "0";
+    if(popupToClose.style.display == "flex" && index == -1){
+        popupToClose.style.opacity = "0";
+        setTimeout(() => {
+            popupToClose.style.display = "none";
+        }, 300);
+    }
+    else {
+    popupToClose.style.display = "flex";
+    setTimeout(() => {
+        popupToClose.style.opacity = "1";
+    }, 1
+    );   
+    }
 }
 function changeURL(type, id){
     location.href += "_" + type + "_" + id;
