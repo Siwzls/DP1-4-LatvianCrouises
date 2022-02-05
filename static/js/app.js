@@ -5,46 +5,31 @@ const btnLogin = document.querySelector('#login');
 const btnPopupClose = document.querySelectorAll('.btn_popupClose');
 const btnAddNew = document.querySelector('#btn_addNew');
 const btnDelete = document.querySelector('#btn_delete');
-
 //Popups
 const popupDetails = document.querySelector('#popup_details');
 const popupLogin = document.querySelector('#popup_login');
 const popupEdit = document.querySelector('#popup_edit');
 const popupCreate = document.querySelector('#popup_create');
-
 //Languages
 const langs = [document.getElementById('langEn'), document.getElementById('langRu'), document.getElementById('langLv')];
-
 //Change language
-if(langs[0] != null){
-    langs.forEach(el => el.addEventListener('click', (e) =>{
-        changeLang(e.target.id);
-    }))
-}
+if(langs[0] != null)langs.forEach(el => el.addEventListener('click', (e) =>{changeLang(e.target.id);}))
 //Open popup
 btnMoreDetails.forEach(el => el.addEventListener('click', (e) =>{
-    switchPopup(popupDetails, e.target.className);
-}))
+    switchPopup(popupDetails, e.target.className);}))
 btnEdit.forEach(el => el.addEventListener('click', (e) =>{
-    switchPopup(popupEdit, e.target.className);
-}))
-if(btnLogin != null){
-    btnLogin.addEventListener('click', (e) =>{
-        switchPopup(popupLogin, e.target.className);
-    })
-}
-if(btnAddNew != null){
-    btnAddNew.addEventListener('click', (e) =>{
-        switchPopup(popupCreate, e.target.className);
-    })
-}
+    switchPopup(popupEdit, e.target.className);}))
+if(btnLogin != null) btnLogin.addEventListener('click', (e) =>{
+    switchPopup(popupLogin, e.target.className);})
+if(btnAddNew != null) btnAddNew.addEventListener('click', (e) =>{
+    switchPopup(popupCreate, e.target.className);})
 // Hide popup
-for(i = 0; i < btnPopupClose.length; i++){
-btnPopupClose[i].addEventListener('click', (e) =>{
-    var popupId = e.target.parentNode.parentNode;
-    switchPopup(popupId, e.target.className);
-});
-}
+btnPopupClose.forEach(el =>{
+    el.addEventListener('click', (e) =>{
+        var popupId = e.target.parentNode.parentNode;
+        switchPopup(popupId, e.target.className);
+    })
+})
 document.addEventListener('click', (e) =>{
     const btnShips = document.getElementById('btn_ships')
     const btnCruises = document.getElementById('btn_crouises');
@@ -103,7 +88,7 @@ selectType.onchange = function () {
     const price = document.getElementById("priceText");
     const from = document.getElementById("fromOption");
     const to = document.getElementById("toOption");
-
+    
     let index = selectType.selectedIndex;
     let option = selectType[index].value;
         switch(option){
@@ -144,9 +129,7 @@ btnEdit.forEach(el => el.addEventListener('click', (e) =>{
     type = e.target.dataset.type;
     id = e.target.dataset.id;
 }))
-btnDelete.addEventListener('click', (e) =>{
-    changeURL(type, id);
-})
+btnDelete.addEventListener('click', (e) =>{changeURL(type, id);})
 function switchPopup(popupToClose, btnClass){
     let index = btnClass.indexOf("btn_open");
     popupToClose.style.opacity = "0";
@@ -157,11 +140,10 @@ function switchPopup(popupToClose, btnClass){
         }, 300);
     }
     else {
-    popupToClose.style.display = "flex";
-    setTimeout(() => {
-        popupToClose.style.opacity = "1";
-    }, 1
-    );   
+        popupToClose.style.display = "flex";
+        setTimeout(() => {
+            popupToClose.style.opacity = "1";
+        }, 1);
     }
 }
 function changeURL(type, id){
