@@ -3,9 +3,6 @@ Popup
 -----
 General parameters
 ==========*/
-#popup_details{
-    display: none;
-}
 .popup{
     position: fixed;
     display: flex;
@@ -58,6 +55,11 @@ General parameters
 General parameters END
 */
 /* Details popup */
+#popup_details{
+    display: none;
+
+    transition: ease-out 0.3s;
+}
 .popup__content img{
     width: 500px;
     height: 500px;
@@ -113,6 +115,8 @@ General parameters END
 /* Login */
 #popup_login{
     display: none;
+
+    transition: ease-out 0.3s;
 }
 .popup__content--login h1{
     font-size: 56px;
@@ -164,6 +168,8 @@ General parameters END
 /* Edit */
 #popup_edit{
     display: none;
+
+    transition: ease-out 0.3s;
 }
 .popup__info--btn_edit{
     display: flex;
@@ -205,6 +211,8 @@ General parameters END
 /* Create */
 #popup_create{
     display: none;
+
+    transition: ease-out 0.3s;
 }
 #popup_create .popup__content{
     position: static;
