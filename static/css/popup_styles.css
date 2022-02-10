@@ -80,16 +80,16 @@ General parameters END
 
     margin: auto;
 }
-.popup__info--parameters{
+.popup__info__parameters{
     text-align: left;
 }
-.popup__info--parameters h4{
+.popup__info__parameters h4{
     margin-top: 30px;
 }
-.popup__info--data{
+.popup__info__data{
     text-align: center;
 }
-.popup__info--data h4{
+.popup__info__data div h4{
     margin-top: 30px;
 }
 .popup_btns{

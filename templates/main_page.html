@@ -69,7 +69,9 @@
                     <div class="infoBlocks__offers__offer">
                         <h1 class="crouise_title">{{ offer.ship }}</h1>
                         <img src="" alt="">
-                        <h2 class="btn_details btn_open">{% block offer_button %}More Details{% endblock %}</h2>
+                        <h2 class="btn_details btn_open" 
+                        data-type="cruise" 
+                        data-id="{{ offer.id }}">{% block offer_button %}More Details{% endblock %}</h2>
                     </div>
                     {% endfor %}
             </div>
@@ -85,16 +87,18 @@
                         <div class="popup__info--content">
                             <h4>Info:</h4>
                             <div class="popup_info--content--inner">
-                                <div class="popup__info--parameters">
+                                <div class="popup__info__parameters">
                                     <h4>Department date:</h4>
                                     <h4>Ship:</h4>
                                     <h4>Price:</h4>
                                 </div>
-                                <div class="popup__info--data">
+                                <div class="popup__info__data">
                                     {% for offer in offers %}
-                                    <h4>{{ offer.departDate }}</h4>
-                                    <h4>{{ offer.ship }}</h4>
-                                    <h4>{{ offer.price }}€</h4>
+                                    <div id="cruise{{ offer.id }}">
+                                        <h4>{{ offer.departDate }}</h4>
+                                        <h4>{{ offer.ship }}</h4>
+                                        <h4>{{ offer.price }}€</h4>
+                                    </div>
                                     {% endfor %}
                                 </div>
                             </div>

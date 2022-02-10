@@ -39,6 +39,8 @@ header a:hover{
     padding: 2px;
 
     cursor: pointer;
+
+    transition: linear 0.6s;
 }
 .typeOfInfo h2:last-child{
     border: #00C508 solid 2px;

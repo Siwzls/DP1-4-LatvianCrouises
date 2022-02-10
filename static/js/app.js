@@ -31,10 +31,11 @@ btnPopupClose.forEach(el =>{
     })
 })
 document.addEventListener('click', (e) =>{
+    //Filter btns
     const btnShips = document.getElementById('btn_ships')
     const btnCruises = document.getElementById('btn_crouises');
     const btnPorts = document.getElementById('btn_ports');
-
+    //Content Blocks
     const cruiseOffers = document.getElementsByClassName("infoBlocks__offers--cruise");
     const shipOffers = document.getElementsByClassName("infoBlocks__offers--ship");
     const portsOffers = document.getElementsByClassName("infoBlocks__offers--port");
@@ -79,6 +80,7 @@ document.addEventListener('click', (e) =>{
     }
 })
 const selectType = document.getElementById("selectType");
+if(selectType != null){
 selectType.onchange = function () {
     const portName = document.getElementById("portNameText");
     const departDate = document.getElementById("departText");
@@ -123,27 +125,44 @@ selectType.onchange = function () {
                 shipCapacity.style.display = "none";
                 break;
         }
-}
+}}
 let type, id;
+if(btnMoreDetails[0] != null){
+btnMoreDetails.forEach(el => el.addEventListener('click', (e) =>{
+    dataDisplay(e);
+}))}
+if(btnEdit[0] != null){
 btnEdit.forEach(el => el.addEventListener('click', (e) =>{
-    type = e.target.dataset.type;
-    id = e.target.dataset.id;
+    dataDisplay(e);
 }))
-btnDelete.addEventListener('click', (e) =>{changeURL(type, id);})
+}
+if(btnDelete != null) btnDelete.addEventListener('click', (e) =>{changeURL(type, id);})
+function dataDisplay(e){
+    type = e.target.dataset.type;
+    alert(type);
+    id = e.target.dataset.id;
+
+    let blockData = document.querySelectorAll(".popup__info__data div");
+    blockData.forEach(el => {
+        if(el.id == type + id) el.style.display = "block";
+        else el.style.display = "none";
+    });
+    let blockParam = document.querySelectorAll(".popup__info__parameters h4");
+    blockParam.forEach(el => {
+        if(el.dataset.type.indexOf(type) != -1) el.style.display = "block";
+        else el.style.display = "none";
+    });
+}
 function switchPopup(popupToClose, btnClass){
     let index = btnClass.indexOf("btn_open");
     popupToClose.style.opacity = "0";
     if(popupToClose.style.display == "flex" && index == -1){
         popupToClose.style.opacity = "0";
-        setTimeout(() => {
-            popupToClose.style.display = "none";
-        }, 300);
+        setTimeout(() => {popupToClose.style.display = "none";}, 300);
     }
     else {
         popupToClose.style.display = "flex";
-        setTimeout(() => {
-            popupToClose.style.opacity = "1";
-        }, 1);
+        setTimeout(() => {popupToClose.style.opacity = "1";}, 1);
     }
 }
 function changeURL(type, id){
