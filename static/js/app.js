@@ -5,51 +5,37 @@ const btnLogin = document.querySelector('#login');
 const btnPopupClose = document.querySelectorAll('.btn_popupClose');
 const btnAddNew = document.querySelector('#btn_addNew');
 const btnDelete = document.querySelector('#btn_delete');
-
 //Popups
 const popupDetails = document.querySelector('#popup_details');
 const popupLogin = document.querySelector('#popup_login');
 const popupEdit = document.querySelector('#popup_edit');
 const popupCreate = document.querySelector('#popup_create');
-
 //Languages
 const langs = [document.getElementById('langEn'), document.getElementById('langRu'), document.getElementById('langLv')];
-
 //Change language
-if(langs[0] != null){
-    langs.forEach(el => el.addEventListener('click', (e) =>{
-        changeLang(e.target.id);
-    }))
-}
+if(langs[0] != null)langs.forEach(el => el.addEventListener('click', (e) =>{changeLang(e.target.id);}))
 //Open popup
 btnMoreDetails.forEach(el => el.addEventListener('click', (e) =>{
-    switchPopup(popupDetails, e.target.className);
-}))
+    switchPopup(popupDetails, e.target.className);}))
 btnEdit.forEach(el => el.addEventListener('click', (e) =>{
-    switchPopup(popupEdit, e.target.className);
-}))
-if(btnLogin != null){
-    btnLogin.addEventListener('click', (e) =>{
-        switchPopup(popupLogin, e.target.className);
-    })
-}
-if(btnAddNew != null){
-    btnAddNew.addEventListener('click', (e) =>{
-        switchPopup(popupCreate, e.target.className);
-    })
-}
+    switchPopup(popupEdit, e.target.className);}))
+if(btnLogin != null) btnLogin.addEventListener('click', (e) =>{
+    switchPopup(popupLogin, e.target.className);})
+if(btnAddNew != null) btnAddNew.addEventListener('click', (e) =>{
+    switchPopup(popupCreate, e.target.className);})
 // Hide popup
-for(i = 0; i < btnPopupClose.length; i++){
-btnPopupClose[i].addEventListener('click', (e) =>{
-    var popupId = e.target.parentNode.parentNode;
-    switchPopup(popupId, e.target.className);
-});
-}
+btnPopupClose.forEach(el =>{
+    el.addEventListener('click', (e) =>{
+        var popupId = e.target.parentNode.parentNode;
+        switchPopup(popupId, e.target.className);
+    })
+})
 document.addEventListener('click', (e) =>{
+    //Filter btns
     const btnShips = document.getElementById('btn_ships')
     const btnCruises = document.getElementById('btn_crouises');
     const btnPorts = document.getElementById('btn_ports');
-
+    //Content Blocks
     const cruiseOffers = document.getElementsByClassName("infoBlocks__offers--cruise");
     const shipOffers = document.getElementsByClassName("infoBlocks__offers--ship");
     const portsOffers = document.getElementsByClassName("infoBlocks__offers--port");
@@ -94,6 +80,7 @@ document.addEventListener('click', (e) =>{
     }
 })
 const selectType = document.getElementById("selectType");
+if(selectType != null){
 selectType.onchange = function () {
     const portName = document.getElementById("portNameText");
     const departDate = document.getElementById("departText");
@@ -103,7 +90,7 @@ selectType.onchange = function () {
     const price = document.getElementById("priceText");
     const from = document.getElementById("fromOption");
     const to = document.getElementById("toOption");
-
+    
     let index = selectType.selectedIndex;
     let option = selectType[index].value;
         switch(option){
@@ -138,30 +125,44 @@ selectType.onchange = function () {
                 shipCapacity.style.display = "none";
                 break;
         }
-}
+}}
 let type, id;
+if(btnMoreDetails[0] != null){
+btnMoreDetails.forEach(el => el.addEventListener('click', (e) =>{
+    dataDisplay(e);
+}))}
+if(btnEdit[0] != null){
 btnEdit.forEach(el => el.addEventListener('click', (e) =>{
-    type = e.target.dataset.type;
-    id = e.target.dataset.id;
+    dataDisplay(e);
 }))
-btnDelete.addEventListener('click', (e) =>{
-    changeURL(type, id);
-})
+}
+if(btnDelete != null) btnDelete.addEventListener('click', (e) =>{changeURL(type, id);})
+function dataDisplay(e){
+    type = e.target.dataset.type;
+    alert(type);
+    id = e.target.dataset.id;
+
+    let blockData = document.querySelectorAll(".popup__info__data div");
+    blockData.forEach(el => {
+        if(el.id == type + id) el.style.display = "block";
+        else el.style.display = "none";
+    });
+    let blockParam = document.querySelectorAll(".popup__info__parameters h4");
+    blockParam.forEach(el => {
+        if(el.dataset.type.indexOf(type) != -1) el.style.display = "block";
+        else el.style.display = "none";
+    });
+}
 function switchPopup(popupToClose, btnClass){
     let index = btnClass.indexOf("btn_open");
     popupToClose.style.opacity = "0";
     if(popupToClose.style.display == "flex" && index == -1){
         popupToClose.style.opacity = "0";
-        setTimeout(() => {
-            popupToClose.style.display = "none";
-        }, 300);
+        setTimeout(() => {popupToClose.style.display = "none";}, 300);
     }
     else {
-    popupToClose.style.display = "flex";
-    setTimeout(() => {
-        popupToClose.style.opacity = "1";
-    }, 1
-    );   
+        popupToClose.style.display = "flex";
+        setTimeout(() => {popupToClose.style.opacity = "1";}, 1);
     }
 }
 function changeURL(type, id){

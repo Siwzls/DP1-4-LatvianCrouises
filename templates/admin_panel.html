@@ -73,16 +73,31 @@
                     <div class="popup__info--content">
                         <h4>Info:</h4>
                         <div class="popup_info--content--inner">
-                            <div class="popup__info--parameters">
-                                <h4>Department date:</h4>
-                                <h4>Ship:</h4>
-                                <h4>Price:</h4>
+                            <div class="popup__info__parameters">
+                                <h4 data-type="cruise">Department date:</h4>
+                                <h4 data-type="port">Port name:</h4>
+                                <h4 data-type="cruise-ship">Ship:</h4>
+                                <h4 data-type="ship">Ship capacity:</h4>
+                                <h4 data-type="cruise">Price:</h4>
                             </div>
-                            <div class="popup__info--data">
+                            <div class="popup__info__data">
                                 {% for offer in offers %}
-                                <h4>{{ offer.departDate }}</h4>
-                                <h4>{{ offer.ship }}</h4>
-                                <h4>{{ offer.price }}€</h4>
+                                <div id="cruise{{ offer.id }}">
+                                    <h4>{{ offer.departDate }}</h4>
+                                    <h4>{{ offer.ship }}</h4>
+                                    <h4>{{ offer.price }}€</h4>
+                                </div>
+                                {% endfor %}
+                                {% for ship in ships %}
+                                <div id="ship{{ ship.id }}">
+                                    <h4>{{ ship.ship }}</h4>
+                                    <h4>{{ ship.passengerCapacity }}</h4>
+                                </div>
+                                {% endfor %}
+                                {% for port in ports %}
+                                <div id="port{{ port.id }}">
+                                    <h4>{{ port.name }}</h4>
+                                </div>
                                 {% endfor %}
                             </div>
                         </div>
